@@ -10,6 +10,11 @@
 <body>
     <form id="form1" runat="server">
         <div>
+
+
+
+<asp:Button ID="btnLoginUsuario" runat="server" CssClass="btn btn-primary" Text="Acceder" OnClick="btnLoginUsuario_Click" style="background-color:aqua;border-color:black;color:black;"/>
+
         </div>
     </form>
 </body>
