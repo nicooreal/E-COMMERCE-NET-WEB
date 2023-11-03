@@ -20,7 +20,7 @@ namespace WebApplication1
 
         protected void btnVentas_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Ventas.aspx");
+            Response.Redirect("Venta.aspx");
         }
 
         protected void btnCompra_Click(object sender, EventArgs e)

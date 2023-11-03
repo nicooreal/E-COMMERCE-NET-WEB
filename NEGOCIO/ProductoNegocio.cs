@@ -53,7 +53,7 @@ namespace NEGOCIO
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("NombreCategoria")))
                 {
-                        producto.idcategoria.nomCategoria = (string)datos.Lector["NombreCategoria"];
+                       producto.idcategoria.nomCategoria = (string)datos.Lector["NombreCategoria"];
 
                 }
 

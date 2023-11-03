@@ -17,13 +17,11 @@
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
         <asp:BoundField DataField="PrecioCompra" HeaderText="Precio de Compra" />
         <asp:BoundField DataField="PrecioVenta" HeaderText="Precio de Venta" />
-        <asp:BoundField DataField="IdMarca" HeaderText="ID de Marca" />
-        <asp:BoundField DataField="IdCategoria" HeaderText="ID de Categoría" />
+        <asp:BoundField DataField="IdMarca" HeaderText="Marca" />
+        <asp:BoundField DataField="IdCategoria" HeaderText="Categoria" />
         <asp:BoundField DataField="StockActual" HeaderText="Stock Actual" />
         <asp:BoundField DataField="StockMinimo" HeaderText="Stock Mínimo" />
-        <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
-<%--         <asp:BoundField DataField="NombreCategoria" HeaderText="Categoria" /> 
-       <asp:BoundField DataField="NombreMarca" HeaderText="Marca" />  --%>                      
+        <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />             
         <asp:CommandField ShowSelectButton ="true" SelectText ="Editar" />
 
                 </Columns>
