@@ -13,7 +13,7 @@
         
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames ="Id" OnSelectedIndexChanged ="GridView1_SelectedIndexChanged">
                 <Columns>
-        <asp:BoundField DataField="Id" HeaderText="ID Producto"/>
+        <asp:BoundField DataField="Id" HeaderText="ID Producto" ReadOnly ="true" />
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
         <asp:BoundField DataField="PrecioCompra" HeaderText="Precio de Compra" />
         <asp:BoundField DataField="PrecioVenta" HeaderText="Precio de Venta" />
@@ -22,7 +22,8 @@
         <asp:BoundField DataField="StockActual" HeaderText="Stock Actual" />
         <asp:BoundField DataField="StockMinimo" HeaderText="Stock Mínimo" />
         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />             
-        <asp:CommandField ShowSelectButton ="true" SelectText ="Editar" />
+        <asp:BoundField DataField="Proveedor" HeaderText="Proveedor" /> 
+                    <asp:CommandField ShowSelectButton ="true" SelectText ="Editar" />
 
                 </Columns>
                    </asp:GridView>        

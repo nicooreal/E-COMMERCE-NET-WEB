@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div>
 <label for="txtId">ID:</label>
-<asp:TextBox ID="txtId" runat="server" />
+<asp:TextBox ID="txtId" runat="server" ReadOnly =" true" />
 <br />
 
 <label for="txtNombre">Nombre:</label>

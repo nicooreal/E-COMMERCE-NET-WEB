@@ -10,6 +10,23 @@
 <body>
     <form id="form1" runat="server">
         <div>
+        
+                    <asp:GridView ID="GridViewProveedores" runat="server" AutoGenerateColumns="False" DataKeyNames ="IdP" OnSelectedIndexChanged="GridViewProveedores_SelectedIndexChanged" >
+                <Columns>
+        <asp:BoundField DataField="Id" HeaderText="ID Proveedor"/>
+        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+        <asp:BoundField DataField="Direccion" HeaderText="Direccion" />        
+        <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
+        <asp:BoundField DataField="correo" HeaderText="Correo" />
+       
+                    
+        <asp:CommandField ShowSelectButton ="true" SelectText ="Editar" />
+
+                </Columns>
+                   </asp:GridView>   
+        
+        
+        
         </div>
     </form>
 </body>

@@ -12,8 +12,9 @@ namespace DOMINIO
         public int edad { get; set; }
         public string direccion { get; set; }
         public DateTime fechaNacimiento { get; set; }
-        
-        // se podria agregar mail y telefono
+        public string correo { get; set; }
+
+        public int numeroTelefono { get; set; }
 
     }
 }

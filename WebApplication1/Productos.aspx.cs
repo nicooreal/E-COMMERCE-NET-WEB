@@ -12,6 +12,7 @@ namespace WebApplication1
     public partial class Productos : System.Web.UI.Page
     {
          public List<Producto> listaProducto { get; set; }
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             ProductoNegocio productoNegocio = new ProductoNegocio();

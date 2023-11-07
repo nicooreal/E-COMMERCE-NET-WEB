@@ -13,6 +13,9 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            try
+            {
             if (!IsPostBack)
             {
 
@@ -24,15 +27,27 @@ namespace WebApplication1
                 Producto produc = lista.Find(x => x.id == idEditar);
 
                 txtNombre.Text = produc.nombre;
-                txtPrecioCompra.Text = produc.precioCompra.ToString();
+                txtPrecioCompra.Text =produc.precioCompra.ToString();
                 txtPrecioVenta.Text = produc.precioVenta.ToString();
                 txtStockActual.Text = produc.stockActual.ToString();
                 txtStockMinimo.Text = produc.stockMinimo.ToString();
                 txtDescripcion.Text = produc.descripcion.ToString();
-                txtId.Text = produc.id.ToString();
+                         txtId.Text = produc.id.ToString();
+                txtIdProveedor.Text = produc.proveedor.id.ToString();
+                    txtIdMarca.Text = produc.idmarca.idMarca.ToString();
+                txtIdCategoria.Text = produc.idcategoria.idCategoria.ToString();
+                
+                }
+
+
+
             }
+            catch (Exception exe)
+            {
 
-
+                throw exe;
+            }
+            
 
 
 
@@ -47,18 +62,33 @@ namespace WebApplication1
 
 
 
-
             if (txtId.Text != null)
             {
 
                 int id = int.Parse(txtId.Text);
                 string nombrenuevo = txtNombre.Text;
+                decimal precioVenta = decimal.Parse(txtPrecioVenta.Text);
+                decimal precioCompra = decimal.Parse(txtPrecioCompra.Text);
+                int stockActual = int.Parse(txtStockActual.Text);
+                int stockMinimo = int.Parse(txtStockMinimo.Text);
+                string descripcion = txtDescripcion.Text;
+                int idProveedor = int.Parse(txtIdProveedor.Text);
+                int idCategoria = int.Parse(txtIdCategoria.Text);
+                int idmarca = int.Parse(txtIdMarca.Text);
 
                 datos.setParameters("@nombre", nombrenuevo);
                 datos.setParameters("@id", id);
+                datos.setParameters("@precioVenta", precioVenta);
+                datos.setParameters("@precioCompra", precioCompra);
+                datos.setParameters("@stockMinimo", stockMinimo);
+                datos.setParameters("@stockActual", stockActual);
+                datos.setParameters("@descripcion", descripcion);
+                datos.setParameters("@idProveedor", idProveedor);
+                datos.setParameters("@idCategoria", idCategoria);
+                datos.setParameters("@idMarca", idmarca);
 
-                datos.setearQuery("UPDATE Productos SET nombre = @nombre WHERE idProducto = @id");
-                //falta para que se puedan cambiar el resto de los datos
+                datos.setearQuery("UPDATE Productos SET idMarca = @idMarca, idProveedor = @idProveedor, idCategoria = @idCategoria, nombre = @nombre, precioCompra = @precioCompra, precioVenta = @precioVenta, stockMinimo = @stockMinimo, stockActual = @stockActual, descripcion = @descripcion   WHERE idProducto = @id");
+              
 
                 datos.ejecutarLectura();
                 datos.cerrarConexion();
