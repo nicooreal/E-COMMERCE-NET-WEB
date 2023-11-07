@@ -11,9 +11,13 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           /* if (Session["usuario"] == null)
+            {
+             Session.Add("error", "Debes Loguearte Para Ingresar");
+             Response.Redirect("Error.aspx", false);
+            }
 
-
-
+            */
 
         }
 
@@ -33,7 +37,20 @@ namespace WebApplication1
             Response.Redirect("Productos.aspx");
         }
 
+        protected void btnProveedores_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Proveedores.aspx");
+        }
 
+        protected void btnClientes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Clientes.aspx");
+        }
+
+        protected void btnMarcas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Marcas.aspx");
+        }
 
 
     }
