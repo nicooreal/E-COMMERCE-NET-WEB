@@ -1,26 +1,27 @@
-﻿using DOMINIO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using DOMINIO;
 
 namespace NEGOCIO
 {
     public class ProveedorNegocio
     {
 
+            List<Proveedor> listaProveedor = new List<Proveedor>();
         public List<Proveedor> listar()
         {
 
 
-            List<Proveedor> listaProveedor = new List<Proveedor>();
 
             AccesoDatos datos = new AccesoDatos();
 
 
 
-            datos.setearQuery("select idProveedor as Id, nombre as Nombre, direccion as Direccion, telefono as Telefono, correo as Correo from Proveedores\r\n");
+            datos.setearQuery("select idProveedor as Id, nombre as Nombre, direccion as Direccion, telefono as Telefono, correo as Correo from Proveedores");
             datos.ejecutarLectura();
 
 
@@ -42,7 +43,7 @@ namespace NEGOCIO
                     prov.direccion = (string)datos.Lector["Direccion"];
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Telefono")))
-                    prov.numeroTelefono = (int)datos.Lector["Telefono"];
+                    prov.telefono = (string)datos.Lector["Telefono"];
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Correo")))
                     prov.correo = (string)datos.Lector["Correo"];

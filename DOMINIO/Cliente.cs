@@ -11,8 +11,8 @@ namespace DOMINIO
     public class Cliente : Persona
     {
 
-        public int numeroCliente { get; set; }
-        public String nombreFantasia { get; set; }
+        public int id { get; set; }
+
         
         //public int facturacion?
       

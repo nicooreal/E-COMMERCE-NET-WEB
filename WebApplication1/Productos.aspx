@@ -2,7 +2,7 @@
 
 <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-   <style>
+<%--   <style>
     .table td, .table th {
         border: 2px solid #007bff; /* Cambia el grosor de las líneas a 2px y el color a azul (#007bff) */
         border: 1px solid #ff6a00; /* Cambia el color de las líneas a naranja (#ff6a00) */
@@ -10,6 +10,7 @@
         }
 </style>
 
+--%>
     <style>
 
 .edit-button {
@@ -30,7 +31,6 @@
         cursor: pointer; /* Cambiar el cursor al pasar por encima */
     }
 </style>
-
 
 
 

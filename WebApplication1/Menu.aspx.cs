@@ -39,12 +39,12 @@ namespace WebApplication1
 
         protected void btnProveedores_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Proveedores.aspx");
+            Response.Redirect("Proveedor.aspx");
         }
 
         protected void btnClientes_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Clientes.aspx");
+            Response.Redirect("Cliente.aspx");
         }
 
         protected void btnMarcas_Click(object sender, EventArgs e)

@@ -14,14 +14,14 @@ namespace WebApplication1
         public List<Proveedor> listaProveedor { get; set; }
 
 
-        protected void Page_Load(object sender, EventArgs e)
+        public void Page_Load(object sender, EventArgs e)
         {
 
 
 
 
             ProveedorNegocio provNegocio = new ProveedorNegocio();
-          // listaProveedor = provNegocio.listar();
+            //listaProveedor = provNegocio.listar();
 
             GridViewProveedores.DataSource = listaProveedor;
 
