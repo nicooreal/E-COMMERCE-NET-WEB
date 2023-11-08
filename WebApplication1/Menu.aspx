@@ -33,7 +33,7 @@
         </div>
         <div class="col">
             <div class="card" >
-                <img src="https://www.esic.edu/sites/default/files/rethink/ff01cba7-marketing-y-ventas-roi.jpg" class="card-img-top" alt="...">
+                <img src="https://miro.medium.com/v2/resize:fit:720/1*kD63_v2-qaX8yzaXt1Zbbw.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Ventas</h5>
                     <p class="card-text">Acceder a la administracion de ventas, ventas a clientes, facturas... etc</p>
@@ -45,7 +45,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="https://go.insitech.com.mx/wp-content/uploads/2022/12/La-guia-para-una-gestion-moderna-de-las-relaciones-con-los-proveedores.webp" class="card-img-top" alt="...">
+                <img src="https://www.eleconomista.com.mx/__export/1660698765144/sites/eleconomista/img/2022/08/16/consejos_buena_relacixn_cliente_proveedor_0.jpg_393767599.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Proveedores</h5>
                     <p class="card-text">Informacion de Proveedores.</p>
@@ -73,7 +73,7 @@
      
         <div class="col">
             <div class="card">
-                <img src="https://www.sneakerlost.es/hubfs/Como-usar-el-marketing-local-para-ganar-clientes-01-1.png" class="card-img-top" alt="...">
+                <img src="https://media.istockphoto.com/id/1224423353/es/vector/marketing-entrante-con-im%C3%A1n-que-atrae-a-la-gente-esbozando-ilustraciones-vectoriales.jpg?s=612x612&w=0&k=20&c=jlIVc-FWlRTJSRw2LgUVq-HKJINBwLTfSJRVhwYzWrg=" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Clientes</h5>
                     <p class="card-text">. Informacion de los Clientes.</p>

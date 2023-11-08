@@ -1,16 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Proveedor.aspx.cs" Inherits="WebApplication1.Proveedor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Proveedor.aspx.cs" Inherits="WebApplication1.Proveedor" MasterPageFile="~/master.Master" %>
 
-<!DOCTYPE html>
+  <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        
                     <asp:GridView ID="GridViewProveedores" runat="server" AutoGenerateColumns="False" DataKeyNames ="IdP" OnSelectedIndexChanged="GridViewProveedores_SelectedIndexChanged" >
                 <Columns>
         <asp:BoundField DataField="Id" HeaderText="ID Proveedor"/>
@@ -27,7 +18,5 @@
         
         
         
-        </div>
-    </form>
-</body>
-</html>
+      
+</asp:Content>

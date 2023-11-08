@@ -23,6 +23,7 @@ namespace WebApplication1
             ProveedorNegocio provNegocio = new ProveedorNegocio();
             //listaProveedor = provNegocio.listar();
 
+
             GridViewProveedores.DataSource = listaProveedor;
 
             GridViewProveedores.DataBind();

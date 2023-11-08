@@ -11,16 +11,16 @@ namespace WebApplication1
 {
 
 
-    public partial class Proveedor
+    public partial class Marca
     {
 
         /// <summary>
-        /// Control GridViewProveedores.
+        /// Control GridViewMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewProveedores;
+        protected global::System.Web.UI.WebControls.GridView GridViewMarca;
     }
 }

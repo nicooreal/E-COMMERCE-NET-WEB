@@ -49,7 +49,7 @@ namespace WebApplication1
 
         protected void btnMarcas_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Marcas.aspx");
+            Response.Redirect("Marca.aspx");
         }
 
 

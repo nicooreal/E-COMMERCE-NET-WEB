@@ -79,6 +79,7 @@
     <Content Include="ErrorLogin.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="Marca.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="Proveedor.aspx" />
@@ -166,6 +167,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marca.aspx.cs">
+      <DependentUpon>Marca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marca.aspx.designer.cs">
+      <DependentUpon>Marca.aspx</DependentUpon>
     </Compile>
     <Compile Include="master.Master.cs">
       <DependentUpon>master.Master</DependentUpon>

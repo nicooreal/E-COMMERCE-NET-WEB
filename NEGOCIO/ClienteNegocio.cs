@@ -11,18 +11,21 @@ namespace NEGOCIO
     public class ClienteNegocio
     {
 
-            List<Cliente> listaProductos = new List<Cliente>();
+            List<Cliente> listaClientes = new List<Cliente>();
         public List<Cliente> listar()
         {
 
 
 
             AccesoDatos datos = new AccesoDatos();
+            
             datos.setearQuery("select IdCliente as IdCLiente, NombreFantasia as NombreFantasia, Direccion as Direccion, Telefono as Telefono, Correo as Correo, FechaNacimiento as FechaNacimiento from Clientes ");
              datos.ejecutarLectura();
+           
             while (datos.Lector.Read())
             {
                 Cliente cliente = new Cliente();
+                
                 cliente.id = (int)datos.Lector["IdCliente"];
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("NombreFantasia")))
@@ -43,13 +46,13 @@ namespace NEGOCIO
 
 
 
-                listaProductos.Add(cliente);
+                listaClientes.Add(cliente);
 
 
             }
             datos.cerrarConexion();
 
-            return listaProductos;
+            return listaClientes;
 
 
 
