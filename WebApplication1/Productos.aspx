@@ -1,17 +1,51 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="WebApplication1.Productos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="WebApplication1.Productos" MasterPageFile="~/master.Master" %>
 
-<!DOCTYPE html>
+<asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+   <style>
+    .table td, .table th {
+        border: 2px solid #007bff; /* Cambia el grosor de las líneas a 2px y el color a azul (#007bff) */
+        border: 1px solid #ff6a00; /* Cambia el color de las líneas a naranja (#ff6a00) */
+        font-weight: bold;
+        }
+</style>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames ="Id" OnSelectedIndexChanged ="GridView1_SelectedIndexChanged">
+    <style>
+
+.edit-button {
+  
+    color: forestgreen; /* Texto en color blanco */
+    border: none; /* Sin borde */
+    padding: 5px 10px; /* Relleno interior del botón */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+    </style>
+
+<style>
+    .delete-button {
+
+        color: red; /* Texto en color blanco */
+        border: none; /* Sin borde */
+        padding: 5px 10px; /* Relleno interior del botón */
+        cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    }
+</style>
+
+
+
+
+    
+         <h2 class="my-4 p-3 text-center bg-primary text-light">PRODUCTOS</h2>
+
+    
+
+
+
+
+
+
+
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames ="Id" OnSelectedIndexChanged ="GridView1_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover">
                 <Columns>
         <asp:BoundField DataField="Id" HeaderText="ID Producto" ReadOnly ="true" />
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
@@ -23,7 +57,7 @@
         <asp:BoundField DataField="StockMinimo" HeaderText="Stock Mínimo" />
         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />             
         <asp:BoundField DataField="Proveedor" HeaderText="Proveedor" /> 
-                    <asp:CommandField ShowSelectButton ="true" SelectText ="Editar" />
+                    <asp:CommandField ShowSelectButton ="true" SelectText ="EDITAR" />
 
                 </Columns>
                    </asp:GridView>        
@@ -31,7 +65,4 @@
         
         
         
-        </div>
-    </form>
-</body>
-</html>
+  </asp:Content>
