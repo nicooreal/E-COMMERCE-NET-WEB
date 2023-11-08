@@ -18,9 +18,9 @@ namespace WebApplication1
             {
             if (!IsPostBack)
             {
-
                 ProductoNegocio productoNegocio = new ProductoNegocio();
                 List<Producto> lista = productoNegocio.listar();
+
 
                 int idEditar = int.Parse(Request.QueryString["id"]);
 
@@ -97,6 +97,30 @@ namespace WebApplication1
 
 
         }
+
+        protected void ButtonBajaLogica_Click(object sender, EventArgs e)
+        {
+          
+           
+
+            
+            if ( CheckBoxBaja.Checked == true)
+            {
+
+            
+                AccesoDatos datos = new AccesoDatos();
+            int idParaEliminar = int.Parse(txtId.Text);
+            datos.setParameters("@idParaEliminar", idParaEliminar);
+            datos.setearQuery("update Productos set estado = 0 where idProducto = @idParaEliminar");
+            datos.ejecutarLectura();
+
+                LabelBajaProducto.Text = "ELIMINACION EXIOTOSA";
+            
+            
+            } else {
+                LabelBajaProducto.Text = "CONFIRME LA ELIMINACION";
+            }
+            }
         
     }
     

@@ -10,7 +10,7 @@
                 <Columns>
           <asp:BoundField DataField="idMarca" HeaderText="ID marca" ReadOnly ="true" />
           <asp:BoundField DataField="nomMarca" HeaderText="Nombre" />
-                    <asp:CommandField ShowSelectButton ="true" SelectText ="EDITAR" />
+                    <asp:CommandField ShowSelectButton ="true" SelectText ="SELECCIONAR" />
 
                 </Columns>
                    </asp:GridView> 

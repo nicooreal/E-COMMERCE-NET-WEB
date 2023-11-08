@@ -18,13 +18,17 @@ namespace NEGOCIO
             List<Producto> listaProductos = new List<Producto>();
 
             AccesoDatos datos = new AccesoDatos();
-            datos.setearQuery("SELECT  Prov.nombre as NombreProveedor, Prov.idProveedor as idProveedor , P.idProducto AS Id, P.nombre AS Nombre, P.precioCompra AS PrecioCompra, C.idCategoria as idCategoria, C.nombre as NombreCategoria, P.precioVenta AS PrecioVenta, M.nombre as NombreMarca,M.idMarca as idMarca, C.nombre AS NombreCategoria, P.stockActual AS StockActual, P.stockMinimo AS StockMinimo, P.descripcion as Descripcion   FROM Productos P  INNER JOIN Marcas M ON P.idMarca = M.idMarca inner join Categorias C on P.idCategoria = C.idCategoria inner join Proveedores prov on prov.idProveedor = P.idProveedor");
+            datos.setearQuery("SELECT P.estado as Estado, Prov.nombre as NombreProveedor, Prov.idProveedor as idProveedor , P.idProducto AS Id, P.nombre AS Nombre, P.precioCompra AS PrecioCompra, C.idCategoria as idCategoria, C.nombre as NombreCategoria, P.precioVenta AS PrecioVenta, M.nombre as NombreMarca,M.idMarca as idMarca, C.nombre AS NombreCategoria, P.stockActual AS StockActual, P.stockMinimo AS StockMinimo, P.descripcion as Descripcion   FROM Productos P  INNER JOIN Marcas M ON P.idMarca = M.idMarca inner join Categorias C on P.idCategoria = C.idCategoria inner join Proveedores prov on prov.idProveedor = P.idProveedor");
        
             datos.ejecutarLectura();
             while (datos.Lector.Read())
             {
                 Producto producto = new Producto();
                 producto.id = (int)datos.Lector["Id"];
+
+                if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Estado")))
+                    producto.estado = (int)datos.Lector["Estado"];
+
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Nombre")))
                     producto.nombre = (string)datos.Lector["Nombre"];
@@ -68,7 +72,9 @@ namespace NEGOCIO
                 }
 
 
-                listaProductos.Add(producto);
+                if (producto.estado == 1)
+
+                { listaProductos.Add(producto); }
 
 
             }

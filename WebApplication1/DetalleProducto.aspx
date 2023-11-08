@@ -1,21 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetalleProducto.aspx.cs" Inherits="WebApplication1.DetalleProducto" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetalleProducto.aspx.cs" Inherits="WebApplication1.DetalleProducto" MasterPageFile="~/master.Master" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+<asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
+        
 <label for="txtId">ID:</label>
-<asp:TextBox ID="txtId" runat="server" ReadOnly =" true" />
+<asp:TextBox ID="txtId" runat="server" ReadOnly ="true" />
 <br />
 
 <label for="txtNombre">Nombre:</label>
-<asp:TextBox ID="txtNombre" runat="server" />
+<asp:TextBox ID="txtNombre" runat="server"/>
 <br />
 
 <label for="txtPrecioCompra">Precio de Compra:</label>
@@ -50,9 +45,25 @@
 <asp:TextBox ID="txtIdProveedor" runat="server" />
 
 
-            <asp:Button ID="ButtonEditar" runat="server" Text="editar"  OnClick="ButtonEditar_Click" />   
+            <asp:Button ID="ButtonEditar" runat="server" Text="EDITAR"  OnClick="ButtonEditar_Click" />   
 
-        </div>
-    </form>
-</body>
-</html>
+ 
+   
+    <div>
+
+
+    <div>
+
+
+<asp:Label ID="LabelBajaProducto" runat="server" Text="ELIMINAR PRODUCTO"></asp:Label>
+<asp:CheckBox ID="CheckBoxBaja" runat="server" />
+    </div>
+
+    <div>
+
+<asp:Button ID="ButtonBajaLogica" runat="server" Text="ELIMINAR" OnClick="ButtonBajaLogica_Click" />
+    
+    </div>
+    </div>
+
+</asp:Content>

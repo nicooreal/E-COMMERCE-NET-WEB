@@ -11,7 +11,7 @@
         <asp:BoundField DataField="correo" HeaderText="Correo" />
        <asp:BoundField DataField="fechaNacimiento" HeaderText=" Fecha de Alta " />
                     
-        <asp:CommandField ShowSelectButton ="true" SelectText ="Editar" />
+        <asp:CommandField ShowSelectButton ="true" SelectText ="SELECCIONAR" />
 
                 </Columns>
                    </asp:GridView>   

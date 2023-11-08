@@ -21,6 +21,7 @@ namespace DOMINIO
         public Proveedor proveedor { get; set; }
 
         public Marcas idmarca { get; set; }
-    
+       
+         public int estado { get; set; }
     }
 }
