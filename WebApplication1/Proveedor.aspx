@@ -2,14 +2,14 @@
 
   <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-                    <asp:GridView ID="GridViewProveedores" runat="server" AutoGenerateColumns="False" DataKeyNames ="IdP" OnSelectedIndexChanged="GridViewProveedores_SelectedIndexChanged" >
+                    <asp:GridView ID="GridViewProveedores" runat="server" AutoGenerateColumns="False" DataKeyNames ="id" OnSelectedIndexChanged="GridViewProveedores_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover" >
                 <Columns>
-        <asp:BoundField DataField="Id" HeaderText="ID Proveedor"/>
-        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+        <asp:BoundField DataField="id" HeaderText="ID Proveedor"/>
+        <asp:BoundField DataField="nombreEmpresa" HeaderText="Nombre" />
         <asp:BoundField DataField="Direccion" HeaderText="Direccion" />        
-        <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
+        <asp:BoundField DataField="telefono" HeaderText="Telefono" />
         <asp:BoundField DataField="correo" HeaderText="Correo" />
-       
+       <asp:BoundField DataField="fechaNacimiento" HeaderText=" Fecha de Alta " />
                     
         <asp:CommandField ShowSelectButton ="true" SelectText ="Editar" />
 

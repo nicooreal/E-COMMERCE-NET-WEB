@@ -34,9 +34,9 @@ namespace NEGOCIO
                 prov.id = (int)datos.Lector["Id"];
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Nombre")))
+                { prov.nombreEmpresa = (string)datos.Lector["Nombre"];
                     prov.nombre = (string)datos.Lector["Nombre"];
-
-
+                        }
 
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Direccion")))

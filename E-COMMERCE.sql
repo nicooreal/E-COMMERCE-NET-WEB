@@ -88,3 +88,13 @@ CREATE TABLE Detalles_Compra (
   FOREIGN KEY (idCompra) REFERENCES Compras(idCompra),
   FOREIGN KEY (idProducto) REFERENCES Productos(idProducto)
 )
+
+/* en productos se agrego descripcion y proveedor
+*/
+alter table Productos
+add estado int not null  check(estado = 1 or estado = 0) default  1,
+descripcion varchar(50) null,
+idProveedor int not null foreign key (idProveedor) references Proveedores
+
+
+

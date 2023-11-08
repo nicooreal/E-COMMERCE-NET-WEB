@@ -11,7 +11,7 @@ namespace WebApplication1
 {
     public partial class Proveedor : System.Web.UI.Page
     {
-        public List<Proveedor> listaProveedor { get; set; }
+        public List<DOMINIO.Proveedor> listaProveedor { get; set; }
 
 
         public void Page_Load(object sender, EventArgs e)
@@ -21,7 +21,7 @@ namespace WebApplication1
 
 
             ProveedorNegocio provNegocio = new ProveedorNegocio();
-            //listaProveedor = provNegocio.listar();
+            listaProveedor =  provNegocio.listar() ;
 
 
             GridViewProveedores.DataSource = listaProveedor;
