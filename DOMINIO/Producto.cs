@@ -20,7 +20,7 @@ namespace DOMINIO
     
         public Proveedor proveedor { get; set; }
 
-        public Marca idmarca { get; set; }
+        public Marcas idmarca { get; set; }
     
     }
 }

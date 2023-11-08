@@ -35,7 +35,7 @@ namespace NEGOCIO
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("PrecioVenta")))
                     producto.precioVenta = (decimal)datos.Lector["PrecioVenta"];
 
-                producto.idmarca = new Marca();
+                producto.idmarca = new Marcas();
                 if (!(datos.Lector["NombreMarca"] is DBNull))
                 {
                     producto.idmarca.nomMarca = (string)datos.Lector["NombreMarca"];

@@ -6,14 +6,10 @@
     
              <h2 class="my-4 p-3 text-center bg-primary text-light">MARCAS</h2>
 
-            <asp:GridView ID="GridViewMarca" runat="server" AutoGenerateColumns="False" DataKeyNames ="Id" CssClass="table table-bordered table-striped table-hover">
+            <asp:GridView ID="GridViewMarca" runat="server" OnSelectedIndexChanged="GridViewMarca_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames ="IdMarca" CssClass="table table-bordered table-striped table-hover">
                 <Columns>
-          <asp:BoundField DataField="Id" HeaderText="Numero de cliente" ReadOnly ="true" />
-         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-          <asp:BoundField DataField="Direccion" HeaderText="Direccion" /> 
-          <asp:BoundField DataField="FechaNacimiento" HeaderText="Fecha de nacimiento" />             
-          <asp:BoundField DataField="Correo" HeaderText="Correo" />              
-         <asp:BoundField DataField="Telefono" HeaderText="Telefono" /> 
+          <asp:BoundField DataField="idMarca" HeaderText="ID marca" ReadOnly ="true" />
+          <asp:BoundField DataField="nomMarca" HeaderText="Nombre" />
                     <asp:CommandField ShowSelectButton ="true" SelectText ="EDITAR" />
 
                 </Columns>

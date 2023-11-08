@@ -11,21 +11,21 @@ namespace NEGOCIO
     public class MarcaNegocio
 
     {
-            List<Marca> listaMarcas = new List<Marca>();
+            List<Marcas> listaMarcas = new List<Marcas>();
 
-        public List<Marca> listar()
+        public List<Marcas> listar()
         {
 
 
 
             AccesoDatos datos = new AccesoDatos();
-            datos.setearQuery("select M.Id as Idmarca, M.nombre as Nombre  from Marcas M");
+            datos.setearQuery("select M.idMarca as IdMarca, M.nombre as Nombre  from Marcas M");
 
             datos.ejecutarLectura();
             while (datos.Lector.Read())
             {
-                Marca marca = new Marca();
-                marca.idMarca = (int)datos.Lector["Id"];
+                Marcas marca = new Marcas();
+                marca.idMarca = (int)datos.Lector["IdMarca"];
                 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Nombre")))
                     marca.nomMarca = (string)datos.Lector["Nombre"];
