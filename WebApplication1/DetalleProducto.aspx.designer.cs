@@ -105,6 +105,15 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtIdProveedor;
 
         /// <summary>
+        /// Control ButtonBajaLogica.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonBajaLogica;
+
+        /// <summary>
         /// Control ButtonEditar.
         /// </summary>
         /// <remarks>
@@ -112,15 +121,6 @@ namespace WebApplication1
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonEditar;
-
-        /// <summary>
-        /// Control LabelBajaProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelBajaProducto;
 
         /// <summary>
         /// Control CheckBoxBaja.
@@ -132,12 +132,12 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxBaja;
 
         /// <summary>
-        /// Control ButtonBajaLogica.
+        /// Control LabelBajaProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonBajaLogica;
+        protected global::System.Web.UI.WebControls.Label LabelBajaProducto;
     }
 }

@@ -71,6 +71,10 @@ CREATE TABLE Usuarios (
     CONSTRAINT [PK_Usuarios] PRIMARY KEY CLUSTERED ([Id] ASC)
 )
 
+
+insert into Usuarios(Usuario, Pass, TipoUser)
+values ('nico', 'nico',1)
+
 CREATE TABLE Detalles_Venta ( --Productos Vendidos---
   idVenta INT not null,
   idProducto INT not null,

@@ -99,11 +99,13 @@ namespace WebApplication1
         }
 
         protected void ButtonBajaLogica_Click(object sender, EventArgs e)
-        {
+          {
           
            
-
+        if ( IsPostBack)
             
+         {
+
             if ( CheckBoxBaja.Checked == true)
             {
 
@@ -120,8 +122,10 @@ namespace WebApplication1
             } else {
                 LabelBajaProducto.Text = "CONFIRME LA ELIMINACION";
             }
-            }
         
+         }            
+            
+          }
     }
     
 }

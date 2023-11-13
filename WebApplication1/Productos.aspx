@@ -2,33 +2,33 @@
 
 <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-<%--   <style>
+   <style>
     .table td, .table th {
-        border: 2px solid #007bff; /* Cambia el grosor de las líneas a 2px y el color a azul (#007bff) */
-        border: 1px solid #ff6a00; /* Cambia el color de las líneas a naranja (#ff6a00) */
+        border: 2px solid #007bff; 
+        border: 1px solid #ff6a00; 
         font-weight: bold;
         }
 </style>
 
---%>
+
     <style>
 
 .edit-button {
   
-    color: forestgreen; /* Texto en color blanco */
-    border: none; /* Sin borde */
-    padding: 5px 10px; /* Relleno interior del botón */
-    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    color: forestgreen; 
+    border: none; 
+    padding: 5px 10px; 
+    cursor: pointer; 
 }
     </style>
 
 <style>
     .delete-button {
 
-        color: red; /* Texto en color blanco */
-        border: none; /* Sin borde */
-        padding: 5px 10px; /* Relleno interior del botón */
-        cursor: pointer; /* Cambiar el cursor al pasar por encima */
+        color: red; 
+        border: none; 
+        padding: 5px 10px; 
+        cursor: pointer; 
     }
 </style>
 

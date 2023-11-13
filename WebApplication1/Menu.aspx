@@ -20,6 +20,9 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4" style=" ">
         <div class="col" style="">
+         
+        
+            
             <div class="card" >
                 <img src="https://res.cloudinary.com/dte7upwcr/image/upload/blog/blog2/carrito-de-compras-ecommerce/carrito-de-compras-ecommerce-img_header.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -30,8 +33,9 @@
                     <asp:Button ID="btnCompra" runat="server" Text="Abrir" cssclass="btn btn-primary" OnClick="btnCompra_Click"/>
                 </div>
             </div>
+  
         </div>
-        <div class="col">
+            <div class="col">
             <div class="card" >
                 <img src="https://miro.medium.com/v2/resize:fit:720/1*kD63_v2-qaX8yzaXt1Zbbw.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
