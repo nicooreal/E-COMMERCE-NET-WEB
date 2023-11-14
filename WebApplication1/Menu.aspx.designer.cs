@@ -33,57 +33,66 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.LinkButton lbtnConfiguracion;
 
         /// <summary>
-        /// Control btnCompra.
+        /// Control ImageButton5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCompra;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton5;
 
         /// <summary>
-        /// Control btnVentas.
+        /// Control ImageButton6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVentas;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton6;
 
         /// <summary>
-        /// Control btnProveedores.
+        /// Control ImageButton3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProveedores;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton3;
 
         /// <summary>
-        /// Control btnMarcas.
+        /// Control ImageButton4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMarcas;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton4;
 
         /// <summary>
-        /// Control btnClientes.
+        /// Control ImageButton2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClientes;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
 
         /// <summary>
-        /// Control btnProductos.
+        /// Control ImageButton1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProductos;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+
+        /// <summary>
+        /// Control vendedores.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton vendedores;
     }
 }

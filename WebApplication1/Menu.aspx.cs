@@ -52,6 +52,9 @@ namespace WebApplication1
             Response.Redirect("Marca.aspx");
         }
 
-
+        protected void vendedores_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Vendedor.aspx");
+        }
     }
 }

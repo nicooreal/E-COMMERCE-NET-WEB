@@ -2,9 +2,9 @@
 
   <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-                    <asp:GridView ID="GridViewProveedores" runat="server" AutoGenerateColumns="False" DataKeyNames ="id" OnSelectedIndexChanged="GridViewProveedores_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover" >
+                    <asp:GridView ID="GridViewProveedores" runat="server" AutoGenerateColumns="False" DataKeyNames ="idProveedor" OnSelectedIndexChanged="GridViewProveedores_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover" >
                 <Columns>
-        <asp:BoundField DataField="id" HeaderText="ID Proveedor"/>
+        <asp:BoundField DataField="idProveedor" HeaderText="ID Proveedor"/>
         <asp:BoundField DataField="nombreEmpresa" HeaderText="Nombre" />
         <asp:BoundField DataField="Direccion" HeaderText="Direccion" />        
         <asp:BoundField DataField="telefono" HeaderText="Telefono" />
