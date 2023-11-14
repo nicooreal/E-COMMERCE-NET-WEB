@@ -31,7 +31,7 @@ namespace NEGOCIO
 
                 Proveedor prov = new Proveedor();
 
-                prov.id = (int)datos.Lector["Id"];
+                prov.idProveedor = (int)datos.Lector["Id"];
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Nombre")))
                 { prov.nombreEmpresa = (string)datos.Lector["Nombre"];

@@ -68,13 +68,13 @@ namespace NEGOCIO
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("NombreProveedor")))
                 {
                     producto.proveedor.nombreEmpresa = (string)datos.Lector["NombreProveedor"];
-                    producto.proveedor.id = (int)datos.Lector["idProveedor"];
+                    producto.proveedor.idProveedor = (int)datos.Lector["idProveedor"];
                 }
 
 
-                if (producto.estado == 1)
+            
 
-                { listaProductos.Add(producto); }
+                 listaProductos.Add(producto);
 
 
             }

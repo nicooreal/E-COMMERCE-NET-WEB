@@ -18,7 +18,9 @@ namespace WebApplication1
             ProductoNegocio productoNegocio = new ProductoNegocio();
             listaProducto = productoNegocio.listar();
 
-            GridView1.DataSource = listaProducto;
+            List<Producto> productosActivos = listaProducto.Where(p => p.estado == 1).ToList();
+
+            GridView1.DataSource = productosActivos;
 
             GridView1.DataBind();
 
@@ -32,6 +34,11 @@ namespace WebApplication1
             var id = GridView1.SelectedDataKey.Value.ToString();
             Response.Redirect("DetalleProducto.aspx?id=" + id);
 
+        }
+
+        protected void ButtonNuevoProd_Click(object sender, EventArgs e)
+        {
+        Response.Redirect("DetalleProducto.aspx?id=" + 0);
         }
     }
 

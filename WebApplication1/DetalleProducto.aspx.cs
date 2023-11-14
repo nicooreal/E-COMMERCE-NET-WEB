@@ -14,32 +14,85 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+
             try
             {
-            if (!IsPostBack)
-            {
-                ProductoNegocio productoNegocio = new ProductoNegocio();
-                List<Producto> lista = productoNegocio.listar();
-
+            
 
                 int idEditar = int.Parse(Request.QueryString["id"]);
 
+
+          
+                ProductoNegocio productoNegocio = new ProductoNegocio();
+                List<Producto> lista = productoNegocio.listar();
                 Producto produc = lista.Find(x => x.id == idEditar);
 
-                txtNombre.Text = produc.nombre;
+
+                    if (idEditar > 0)
+                    {
+
+                         txtId.Text = produc.id.ToString();
                 txtPrecioCompra.Text =produc.precioCompra.ToString();
+                     txtNombre.Text = produc.nombre;
                 txtPrecioVenta.Text = produc.precioVenta.ToString();
                 txtStockActual.Text = produc.stockActual.ToString();
                 txtStockMinimo.Text = produc.stockMinimo.ToString();
                 txtDescripcion.Text = produc.descripcion.ToString();
-                         txtId.Text = produc.id.ToString();
-                txtIdProveedor.Text = produc.proveedor.id.ToString();
-                    txtIdMarca.Text = produc.idmarca.idMarca.ToString();
-                txtIdCategoria.Text = produc.idcategoria.idCategoria.ToString();
+                //txtIdProveedor.Text = produc.proveedor.idProveedor.ToString();
+                //    txtIdMarca.Text = produc.idmarca.idMarca.ToString();
+                //txtIdCategoria.Text = produc.idcategoria.idCategoria.ToString();
+
+                    }
+
+                if (idEditar == 0) 
                 
+                {
+
+                   int cantidadElementosLIsta = lista.Count();
+
+                txtId.Text = (cantidadElementosLIsta + 1).ToString();
+                
+                } 
+                
+                else 
+                {
+
+
+
+
                 }
 
 
+
+
+
+                if (idEditar == 0) 
+                    { 
+                    
+                    } 
+
+                 
+
+                    dropDownListprov.DataSource = lista;
+                    dropDownListprov.DataTextField = "proveedor";
+                    dropDownListprov.DataValueField = "proveedor";
+                    dropDownListprov.DataBind();
+                    
+                    dropDownListCategoria.DataSource = lista;
+                    dropDownListCategoria.DataTextField = "idcategoria";
+                    dropDownListCategoria.DataValueField = "idcategoria";
+                    dropDownListCategoria.DataBind();
+
+                    dropDownListMarca.DataSource = lista;
+                    dropDownListMarca.DataTextField = "idmarca";
+                    dropDownListMarca.DataValueField = "idmarca";
+                    dropDownListMarca.DataBind();
+
+             
+
+
+                
 
             }
             catch (Exception exe)
@@ -72,9 +125,9 @@ namespace WebApplication1
                 int stockActual = int.Parse(txtStockActual.Text);
                 int stockMinimo = int.Parse(txtStockMinimo.Text);
                 string descripcion = txtDescripcion.Text;
-                int idProveedor = int.Parse(txtIdProveedor.Text);
-                int idCategoria = int.Parse(txtIdCategoria.Text);
-                int idmarca = int.Parse(txtIdMarca.Text);
+                //int idProveedor = int.Parse(txtIdProveedor.Text);
+                //int idCategoria = int.Parse(txtIdCategoria.Text);
+                //int idmarca = int.Parse(txtIdMarca.Text);
 
                 datos.setParameters("@nombre", nombrenuevo);
                 datos.setParameters("@id", id);
@@ -83,9 +136,9 @@ namespace WebApplication1
                 datos.setParameters("@stockMinimo", stockMinimo);
                 datos.setParameters("@stockActual", stockActual);
                 datos.setParameters("@descripcion", descripcion);
-                datos.setParameters("@idProveedor", idProveedor);
-                datos.setParameters("@idCategoria", idCategoria);
-                datos.setParameters("@idMarca", idmarca);
+                //datos.setParameters("@idProveedor", idProveedor);
+                //datos.setParameters("@idCategoria", idCategoria);
+                //datos.setParameters("@idMarca", idmarca);
 
                 datos.setearQuery("UPDATE Productos SET idMarca = @idMarca, idProveedor = @idProveedor, idCategoria = @idCategoria, nombre = @nombre, precioCompra = @precioCompra, precioVenta = @precioVenta, stockMinimo = @stockMinimo, stockActual = @stockActual, descripcion = @descripcion   WHERE idProducto = @id");
               

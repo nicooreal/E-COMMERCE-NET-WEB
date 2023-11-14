@@ -9,7 +9,7 @@ namespace DOMINIO
 {
     public class Proveedor : Persona
     {
-    public int id { get; set; }
+    public int idProveedor { get; set; }
 
         public string nombreEmpresa { get; set; }
         public override string ToString()

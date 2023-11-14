@@ -51,18 +51,19 @@
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
         <asp:BoundField DataField="PrecioCompra" HeaderText="Precio de Compra" />
         <asp:BoundField DataField="PrecioVenta" HeaderText="Precio de Venta" />
-        <asp:BoundField DataField="IdMarca" HeaderText="Marca" />
-        <asp:BoundField DataField="IdCategoria" HeaderText="Categoria" />
+        <asp:BoundField DataField="IdMarca.nomMarca" HeaderText="Marca" />
+        <asp:BoundField DataField="IdCategoria.nomCategoria" HeaderText="Categoria" />
         <asp:BoundField DataField="StockActual" HeaderText="Stock Actual" />
         <asp:BoundField DataField="StockMinimo" HeaderText="Stock Mínimo" />
         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />             
-        <asp:BoundField DataField="Proveedor" HeaderText="Proveedor" /> 
+        <asp:BoundField DataField="Proveedor.nombreEmpresa" HeaderText="Proveedor" /> 
+      <asp:BoundField DataField="Proveedor.IdProveedor" HeaderText="Proveedor" /> 
                     <asp:CommandField ShowSelectButton ="true" SelectText ="SELECCIONAR" />
 
                 </Columns>
                    </asp:GridView>        
         
         
-        
+    <asp:Button ID="ButtonNuevoProd" OnClick="ButtonNuevoProd_Click" class="btn btn-warning" runat="server" Text="NUEVO PRODUCTO" />
         
   </asp:Content>

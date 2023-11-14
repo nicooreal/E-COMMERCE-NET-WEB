@@ -42,6 +42,15 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtPrecioCompra;
 
         /// <summary>
+        /// Control dropDownListMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropDownListMarca;
+
+        /// <summary>
         /// Control txtPrecioVenta.
         /// </summary>
         /// <remarks>
@@ -51,24 +60,6 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtPrecioVenta;
 
         /// <summary>
-        /// Control txtIdMarca.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdMarca;
-
-        /// <summary>
-        /// Control txtIdCategoria.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdCategoria;
-
-        /// <summary>
         /// Control txtStockActual.
         /// </summary>
         /// <remarks>
@@ -76,6 +67,15 @@ namespace WebApplication1
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStockActual;
+
+        /// <summary>
+        /// Control dropDownListCategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropDownListCategoria;
 
         /// <summary>
         /// Control txtStockMinimo.
@@ -96,13 +96,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
 
         /// <summary>
-        /// Control txtIdProveedor.
+        /// Control dropDownListprov.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdProveedor;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownListprov;
 
         /// <summary>
         /// Control ButtonBajaLogica.
