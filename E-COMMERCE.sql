@@ -75,6 +75,9 @@ CREATE TABLE Usuarios (
 insert into Usuarios(Usuario, Pass, TipoUser)
 values ('nico', 'nico',1)
 
+insert into Usuarios(Usuario, Pass, TipoUser)
+values ('NICO', 'NICO',2)
+
 CREATE TABLE Detalles_Venta ( --Productos Vendidos---
   idVenta INT not null,
   idProducto INT not null,
@@ -102,3 +105,10 @@ idProveedor int not null foreign key (idProveedor) references Proveedores
 
 
 
+SELECT P.estado as Estado, Prov.nombre as NombreProveedor, Prov.idProveedor as idProveedor , P.idProducto AS Id, P.nombre AS Nombre, 
+P.precioCompra AS PrecioCompra, C.idCategoria as idCategoria, C.nombre as NombreCategoria, P.precioVenta AS PrecioVenta, M.nombre as NombreMarca,M.idMarca as idMarca, 
+C.nombre AS NombreCategoria, P.stockActual AS StockActual, P.stockMinimo AS StockMinimo, 
+P.descripcion as Descripcion   FROM Productos P  INNER JOIN Marcas M ON P.idMarca = M.idMarca inner join Categorias C on P.idCategoria = C.idCategoria inner join Proveedores prov on prov.idProveedor = P.idProveedor
+  
+
+update Productos set estado = 1

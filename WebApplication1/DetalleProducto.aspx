@@ -116,7 +116,7 @@
  <div class="btn-group mb-3 " role="group" aria-label="Basic mixed styles example">
   
 <asp:Button ID="ButtonBajaLogica"  class="btn btn-danger" runat="server" Text="ELIMINAR" OnClick="ButtonBajaLogica_Click" />
-<asp:Button ID="ButtonEditar" runat="server" Text="EDITAR" class="btn btn-success"  OnClick="ButtonEditar_Click" />   
+<asp:Button ID="ButtonEditar" runat="server" Text="GUARDAR" class="btn btn-success"  OnClick="ButtonEditar_Click" />   
 
 
 
@@ -136,10 +136,17 @@
     </div>
 
 
+
+
     <div>
 
-    
+        <asp:Label ID="LabelConfirmacion" runat="server" Style=" font-weight: bold;"></asp:Label>
+
     </div>
+
+
+
+
 
 
 </asp:Content>

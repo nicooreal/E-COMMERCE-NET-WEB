@@ -18,9 +18,15 @@ namespace WebApplication1
 
             try
             {
+
+                if (!IsPostBack)
+                {
+
+                
+                
+                int idEditar = int.Parse(Request.QueryString["id"]);
             
 
-                int idEditar = int.Parse(Request.QueryString["id"]);
 
 
           
@@ -63,35 +69,27 @@ namespace WebApplication1
 
                 }
 
-
-
-
-
-                if (idEditar == 0) 
-                    { 
-                    
-                    } 
-
                  
 
                     dropDownListprov.DataSource = lista;
                     dropDownListprov.DataTextField = "proveedor";
-                    dropDownListprov.DataValueField = "proveedor";
+                    dropDownListprov.DataValueField = "id";
                     dropDownListprov.DataBind();
                     
                     dropDownListCategoria.DataSource = lista;
                     dropDownListCategoria.DataTextField = "idcategoria";
-                    dropDownListCategoria.DataValueField = "idcategoria";
+                    dropDownListCategoria.DataValueField = "id";
                     dropDownListCategoria.DataBind();
 
                     dropDownListMarca.DataSource = lista;
                     dropDownListMarca.DataTextField = "idmarca";
-                    dropDownListMarca.DataValueField = "idmarca";
+                    dropDownListMarca.DataValueField = "id";
                     dropDownListMarca.DataBind();
 
              
 
 
+                }
                 
 
             }
@@ -111,12 +109,11 @@ namespace WebApplication1
         protected void ButtonEditar_Click(object sender, EventArgs e)
         {
 
-            AccesoDatos datos = new AccesoDatos();
+             AccesoDatos datos = new AccesoDatos();
+             int idEditar = int.Parse(Request.QueryString["id"]);
 
 
 
-            if (txtId.Text != null)
-            {
 
                 int id = int.Parse(txtId.Text);
                 string nombrenuevo = txtNombre.Text;
@@ -125,9 +122,14 @@ namespace WebApplication1
                 int stockActual = int.Parse(txtStockActual.Text);
                 int stockMinimo = int.Parse(txtStockMinimo.Text);
                 string descripcion = txtDescripcion.Text;
-                //int idProveedor = int.Parse(txtIdProveedor.Text);
-                //int idCategoria = int.Parse(txtIdCategoria.Text);
-                //int idmarca = int.Parse(txtIdMarca.Text);
+                int idCategoria = int.Parse(dropDownListCategoria.Text);
+                int idProveedor = int.Parse(dropDownListMarca.Text);
+                int idMarca = int.Parse(dropDownListprov.Text);
+
+                    //int idProveedor = int.Parse(txtIdProveedor.Text);
+                    //int idCategoria = int.Parse(txtIdCategoria.Text);
+                    //int idmarca = int.Parse(txtIdMarca.Text);
+
 
                 datos.setParameters("@nombre", nombrenuevo);
                 datos.setParameters("@id", id);
@@ -136,16 +138,27 @@ namespace WebApplication1
                 datos.setParameters("@stockMinimo", stockMinimo);
                 datos.setParameters("@stockActual", stockActual);
                 datos.setParameters("@descripcion", descripcion);
-                //datos.setParameters("@idProveedor", idProveedor);
-                //datos.setParameters("@idCategoria", idCategoria);
-                //datos.setParameters("@idMarca", idmarca);
+                datos.setParameters("@idProveedor", idProveedor);
+                datos.setParameters("@idCategoria", idCategoria);
+                datos.setParameters("@idMarca", idMarca);
 
-                datos.setearQuery("UPDATE Productos SET idMarca = @idMarca, idProveedor = @idProveedor, idCategoria = @idCategoria, nombre = @nombre, precioCompra = @precioCompra, precioVenta = @precioVenta, stockMinimo = @stockMinimo, stockActual = @stockActual, descripcion = @descripcion   WHERE idProducto = @id");
-              
+            if (idEditar == 0) // mando 0 cuando toco el boton de agregar nuevo producto desde el aspx de producto
+            {
 
+                datos.setearQuery("INSERT INTO Productos (nombre, precioCompra, precioVenta, idMarca, idCategoria, stockActual, stockMinimo, estado, descripcion, idProveedor) VALUES (@nombre, @precioCompra,@precioVenta ,@idMarca , @idCategoria, @stockActual,@stockMinimo, 1, @descripcion, @idProveedor)");
+
+            }   else
+            
+            {
+
+            datos.setearQuery("UPDATE Productos SET idMarca = @idMarca, idProveedor = @idProveedor, idCategoria = @idCategoria, nombre = @nombre, precioCompra = @precioCompra, precioVenta = @precioVenta, stockMinimo = @stockMinimo, stockActual = @stockActual, descripcion = @descripcion   WHERE idProducto = @id");
+
+            }
+            LabelConfirmacion.ForeColor = System.Drawing.Color.Green;
+            LabelConfirmacion.Text = "GUARDADO CON EXITO";
                 datos.ejecutarLectura();
                 datos.cerrarConexion();
-            }
+            
 
 
 
@@ -169,7 +182,8 @@ namespace WebApplication1
             datos.setearQuery("update Productos set estado = 0 where idProducto = @idParaEliminar");
             datos.ejecutarLectura();
 
-                LabelBajaProducto.Text = "ELIMINACION EXIOTOSA";
+                LabelConfirmacion.ForeColor = System.Drawing.Color.Red;
+                LabelConfirmacion.Text = "ELIMINACION EXIOTOSA";
             
             
             } else {

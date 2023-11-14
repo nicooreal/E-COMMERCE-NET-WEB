@@ -86,6 +86,23 @@ namespace NEGOCIO
 
 
         }
+    
+    
+    
+    
+        
+        public void modificarProducto()
+        {
+
+
+
+
+
+
+        }
+    
+    
+    
     }
 
 
