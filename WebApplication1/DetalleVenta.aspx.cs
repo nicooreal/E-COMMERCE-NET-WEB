@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DOMINIO;
+using NEGOCIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,24 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            int idSeleccionado = int.Parse(Request.QueryString["id"]);
+
+            DetalleVentaNegocio detVenta = new DetalleVentaNegocio();
+             List<DOMINIO.DetalleVenta> listaDetalleVenta =  detVenta.listarDetalleVenta();
+
+            List<DOMINIO.DetalleVenta> listaDetalleVentaDeID = listaDetalleVenta.Where(DetVenta => DetVenta.codigo == idSeleccionado).ToList();
+
+
+            decimal TotalDeVenta = listaDetalleVentaDeID.Sum(det => det.totalPorProducto);
+
+            labelDetalleVenta.Text = ("TOTAL $" + TotalDeVenta ).ToString();
+
+            GridViewDetalleVenta.DataSource = listaDetalleVentaDeID;
+            GridViewDetalleVenta.DataBind();
+        
+        
         }
+
+
     }
 }

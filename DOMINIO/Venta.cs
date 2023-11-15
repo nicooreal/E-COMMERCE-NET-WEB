@@ -15,9 +15,10 @@ namespace DOMINIO
         public List<Producto> listaProductosVenta { get; set; }
         public Cliente cliente { get; set; }
         public float descuento { get; set; }
-        public float total { get; set; }
+        public decimal total { get; set; }
         public string observacion { get; set; }
 
+        public int cantidadDeProductos { get; set; }
 
     }
 }

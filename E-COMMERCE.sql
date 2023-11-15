@@ -171,4 +171,4 @@ select * from Clientes
 update Ventas set idVendedor = 2 where idCliente = 1
 
 
-select V.fecha, V.idCliente, V.observacion,V.idVenta,V.idVendedor from Ventas V
+select C.nombreFantasia as nombreCliente, V.idVenta as idVenta, V.fecha as fecha, V.idCliente as idCliente, V.observacion as observacion,V.idVenta as idVenta,V.idVendedor as idVendedor, vend.nombre as nombreVendedor  from Ventas V  inner join Vendedores vend on vend.idVendedor = V.idVendedor inner join Clientes C on V.idCliente = C.idCliente

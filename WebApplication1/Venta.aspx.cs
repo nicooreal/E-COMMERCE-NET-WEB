@@ -25,5 +25,17 @@ namespace WebApplication1
 
 
         }
+
+        //protected void ButtonDetalle_Click(object sender, EventArgs e)
+        //{
+        //}
+
+        protected void GridViewVentas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var id = GridViewVentas.SelectedDataKey.Value.ToString();
+            
+            Response.Redirect("DetalleVenta.aspx?id=" + id);
+
+        }
     }
 }

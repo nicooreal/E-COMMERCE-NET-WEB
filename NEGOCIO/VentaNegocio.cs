@@ -18,7 +18,7 @@ namespace NEGOCIO
 
         List<Venta> listaVentas = new List<Venta>();
 
-            datos.setearQuery("select C.nombreFantasia as nombreCliente, V.fecha as fecha,V.idVenta as idVenta ,V.idCliente as idCliente, V.observacion as observacion,V.idVenta as idVenta,V.idVendedor as idVendedor, vend.nombre as nombreVendedor  from Ventas V  inner join Vendedores vend on vend.idVendedor = V.idVendedor inner join Clientes C on V.idCliente = C.idCliente");
+            datos.setearQuery("\tSELECT V.idVenta, SUM(DetV.cantidad * DetV.precio) as totalVenta, SUM( DetV.cantidad) as cantidadProductos, C.nombreFantasia as nombreCliente,  V.fecha as fecha, V.idCliente as idCliente,  V.observacion as observacion, V.idVendedor as idVendedor, vend.nombre as nombreVendedor   FROM  Ventas V   INNER JOIN Vendedores vend ON vend.idVendedor = V.idVendedor  INNER JOIN Clientes C ON V.idCliente = C.idCliente  INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta, C.nombreFantasia, V.fecha, V.idCliente, V.observacion, V.idVendedor, vend.nombre;\r\n\r\n ");
 
 
             datos.ejecutarLectura();
@@ -43,7 +43,7 @@ namespace NEGOCIO
                 }
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("observacion")))
-                    vent.fechaVenta = (DateTime)datos.Lector["fecha"];
+                    vent.fechaVenta =  (DateTime)datos.Lector["fecha"];
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("observacion")))
                     vent.observacion = (string)datos.Lector["observacion"];
@@ -57,8 +57,13 @@ namespace NEGOCIO
                     vent.vendedor.nombre = (string)datos.Lector["nombreVendedor"];
 
                 }
-            
-            
+
+                if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("totalVenta")))
+                    vent.total = (decimal)datos.Lector["totalVenta"];
+
+                if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("cantidadProductos")))
+                    vent.cantidadDeProductos = (int)datos.Lector["cantidadProductos"];
+
 
                 listaVentas.Add(vent);
             
