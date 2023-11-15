@@ -33,13 +33,19 @@
     }
 </style>
 
+<style>
+    .margen-botones {
+        margin: 20px; 
+    }
+</style>
+
 
 
 
 
     <div>
 
-        <asp:Button ID="ButtonNuevoProd"  class="btn btn-warning" runat="server" Text="NUEVA VENTA" />
+        <asp:Button ID="ButtonNuevoProd"  class="btn btn-warning margen-botones" runat="server" Text="NUEVA VENTA" />
     </div>
 
 

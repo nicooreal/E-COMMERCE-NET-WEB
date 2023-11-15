@@ -32,6 +32,11 @@
     }
 </style>
 
+<style>
+    .margen-botones {
+        margin: 20px; 
+    }
+</style>
 
 
     
@@ -42,7 +47,9 @@
 
 
 
+    <asp:Button ID="ButtonNuevoProd" OnClick="ButtonNuevoProd_Click" class="btn btn-warning margen-botones" runat="server" Text="NUEVO PRODUCTO" />
 
+   
 
 
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames ="Id" OnSelectedIndexChanged ="GridView1_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover">
@@ -64,6 +71,5 @@
                    </asp:GridView>        
         
         
-    <asp:Button ID="ButtonNuevoProd" OnClick="ButtonNuevoProd_Click" class="btn btn-warning" runat="server" Text="NUEVO PRODUCTO" />
         
   </asp:Content>
