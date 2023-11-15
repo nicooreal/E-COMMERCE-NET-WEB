@@ -87,6 +87,10 @@ CREATE TABLE Detalles_Venta ( --Productos Vendidos---
   FOREIGN KEY (idProducto) REFERENCES Productos(idProducto)
 )
 
+
+
+
+
 CREATE TABLE Detalles_Compra (
   idCompra INT not null,
   idProducto INT not null,
@@ -96,12 +100,37 @@ CREATE TABLE Detalles_Compra (
   FOREIGN KEY (idProducto) REFERENCES Productos(idProducto)
 )
 
-/* en productos se agrego descripcion y proveedor
+/* en productos se agrego descripcion, estado y proveedor
 */
 alter table Productos
 add estado int not null  check(estado = 1 or estado = 0) default  1,
 descripcion varchar(50) null,
 idProveedor int not null foreign key (idProveedor) references Proveedores
+
+/* en Ventas se agrego id de vendedor
+*/
+alter table Ventas
+add idVendedor int null foreign key (idVendedor) references Vendedores
+
+
+/*se creo la tabla vendedores*/
+
+
+CREATE TABLE Vendedores (
+  idVendedor INT PRIMARY KEY IDENTITY (1, 1),
+  nombre VARCHAR(50) not null,
+  direccion VARCHAR(50) null,
+  telefono VARCHAR(20) null,
+  correo VARCHAR(50) null,
+  estado int not null  check(estado = 1 or estado = 0) default  1
+);
+
+
+
+
+
+
+
 
 
 
@@ -112,3 +141,34 @@ P.descripcion as Descripcion   FROM Productos P  INNER JOIN Marcas M ON P.idMarc
   
 
 update Productos set estado = 1
+
+
+INSERT INTO Productos (nombre, precioCompra, precioVenta, idMarca, idCategoria, stockActual, stockMinimo, estado, descripcion, idProveedor)
+VALUES ('@nombre', @precioCompra,@precioVenta ,@idMarca , @idCategoria, @stockActual,@stockMinimo, 1, '@descripcion', @idProveedor);
+
+
+INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio)
+VALUES (2, 2, 2, 15.50),
+       (2, 1, 1, 30.00);
+
+-- Insertar datos de vendedores en la tabla
+INSERT INTO Vendedores (nombre, direccion, telefono, correo)
+VALUES 
+  ('Juan Pérez', 'Calle A #123', '123-456-7890', 'juan@example.com'),
+  ('María Gómez', 'Avenida B #456', '987-654-3210', 'maria@example.com'),
+  ('Carlos Rodríguez', 'Carrera C #789', '555-123-4567', 'carlos@example.com');
+
+
+
+INSERT INTO Ventas (idCliente, fecha, observacion)
+VALUES (1, '2023-11-15', 'Venta de productos al cliente habitual');
+
+select * from Ventas
+select * from Detalles_Venta
+select * from Vendedores
+select * from Clientes
+
+update Ventas set idVendedor = 2 where idCliente = 1
+
+
+select V.fecha, V.idCliente, V.observacion,V.idVenta,V.idVendedor from Ventas V
