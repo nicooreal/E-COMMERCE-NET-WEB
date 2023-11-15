@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DOMINIO
 {
-    public class Vendedor
+    public class Vendedor : Persona
     {
         public int legajo { get; set; }
         public List<Cliente> listaClientes { get; set; }

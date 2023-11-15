@@ -8,7 +8,7 @@ namespace DOMINIO
 {
     public class Venta
     {
-        public bool estadoEntregado { get; set; }
+       
         public DateTime fechaVenta { get; set; }
         public int codigo { get; set; }
         public Vendedor vendedor { get; set; }

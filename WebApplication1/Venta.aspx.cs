@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NEGOCIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,8 +10,19 @@ namespace WebApplication1
 {
     public partial class Venta : System.Web.UI.Page
     {
+        public List<DOMINIO.Venta> listaVenta { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        
+        VentaNegocio ventaNegocio = new VentaNegocio();
+            listaVenta = ventaNegocio.listarVenta();
+
+            GridViewVentas.DataSource = listaVenta;
+            GridViewVentas.DataBind();
+
+
 
         }
     }
