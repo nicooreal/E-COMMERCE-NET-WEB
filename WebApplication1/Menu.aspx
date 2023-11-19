@@ -76,6 +76,7 @@
     <asp:ImageButton ID="ImageButton3" runat="server" class="card-img-top" OnClick="btnVentas_Click"  ImageUrl="https://miro.medium.com/v2/resize:fit:720/1*kD63_v2-qaX8yzaXt1Zbbw.jpeg" /> 
                             <div class="card-body">
                     <h5 class="card-title">Ventas</h5>
+
                     <p class="card-text">Acceder a la administracion de ventas, ventas a clientes</p>
                                 </div>
                 
@@ -94,6 +95,7 @@
 
             <div class="col">
             <div class="card">
+                
     <asp:ImageButton ID="ImageButton4" runat="server" class="card-img-top" OnClick="btnMarcas_Click"  ImageUrl="https://franciscotorreblanca.es/wp-content/uploads/2019/11/simbolos-que-acompanan-marcas.jpg" /> 
                             <div class="card-body">
                     <h5 class="card-title">Marcas</h5>
@@ -102,7 +104,6 @@
                 
             </div>
                                 </div>
-
 
 
 
@@ -128,6 +129,9 @@
     <asp:ImageButton ID="ImageButton1" runat="server" class="card-img-top" OnClick="btnProductos_Click" ImageUrl="https://i0.wp.com/esferacreativa.com/wp-content/uploads/2017/05/fichas-tecnicas-de-productos-ecommerce-Teresa-Alba-MadridNYC.png?fit=640%2C320&ssl=1" />
                             <div class="card-body">
                     <h5 class="card-title">Productos</h5>
+                                
+         <%if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN)
+     { } %>
                     <p class="card-text">Acceso a detalle de Productos .</p>    
                   
             
@@ -143,6 +147,7 @@
     <asp:ImageButton ID="vendedores" runat="server" class="card-img-top" OnClick="vendedores_Click" ImageUrl="https://img.freepik.com/vector-premium/concepto-ventas-adicionales-pequenos-vendedores-compradores-personajes-huge-pc-upselling-online-marketing-tecnica-venta-mas-rentable-promocion-compradores-obsequios-bonificaciones-ilustracion-vector-gente-dibujos-animados_87771-11845.jpg?w=740" />
                    <div class="card-body">
                 <h5 class="card-title">Vendedores</h5>
+
                     <p class="card-text">Acceso a nuestros vendedores</p>    
                   
             

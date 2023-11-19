@@ -11,20 +11,26 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          /*  if (Session["error"] != null)
+            if (Session["error"] != null)
             {
                 lblMensaje.Text = Session["error"].ToString();
-          
             }
-          */
+
+
+
         }
 
-
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void btnUnlog_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            if (Session["usuario"] != null)
+            {
+                Session.RemoveAll();
+            }
+            Response.Redirect("Login.aspx", false);
         }
 
-     
+
+
+
     }
 }

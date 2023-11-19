@@ -11,13 +11,11 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           /* if (Session["usuario"] == null)
+            if (Session["usuario"] == null)
             {
-             Session.Add("error", "Debes Loguearte Para Ingresar");
-             Response.Redirect("Error.aspx", false);
+                Session.Add("error", "Debes Loguearte Para Ingresar");
+                Response.Redirect("ErrorLogin.aspx", false);
             }
-
-            */
 
         }
 
