@@ -8,8 +8,9 @@ namespace DOMINIO
 {
     public class Vendedor : Persona
     {
+        public int idVendedor { get; set; }
         public int legajo { get; set; }
-        public List<Cliente> listaClientes { get; set; }
+        public List<Vendedor> listaVendedor { get; set; }
 
     
     

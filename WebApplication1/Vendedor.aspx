@@ -40,6 +40,37 @@
 </style>
 
 
+     <h2 class="my-4 p-3 text-center bg-primary text-light">VENDEDORES</h2>
+
+
+
+
+
+               <asp:GridView ID="GridViewVendedor" runat="server" AutoGenerateColumns="False" DataKeyNames ="idVendedor" OnSelectedIndexChanged="GridViewVendedor_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover" >
+           <Columns>
+   <asp:BoundField DataField="idVendedor" HeaderText="ID Vendedor"/>
+   <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+   <asp:BoundField DataField="Direccion" HeaderText="Direccion" />        
+   <asp:BoundField DataField="telefono" HeaderText="Telefono" />
+   <asp:BoundField DataField="correo" HeaderText="Correo" />
+  <asp:BoundField DataField="fechaNacimiento" HeaderText=" Fecha de Alta " />
+               
+   <asp:CommandField ShowSelectButton ="true" SelectText ="SELECCIONAR" />
+
+           </Columns>
+              </asp:GridView>   
+   
+        
+
+
+
+
+
+
+
+
+
+
 
 
 
