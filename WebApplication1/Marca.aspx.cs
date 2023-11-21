@@ -27,10 +27,15 @@ namespace WebApplication1
         {
 
             var id = GridViewMarca.SelectedDataKey.Value.ToString();
-            Response.Redirect("DetalleMarca.aspx?id=" + id);
 
 
 
+        }
+
+        protected void ButtonNuevaMarca_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("DetalleMarca.aspx");
         }
     }
 }

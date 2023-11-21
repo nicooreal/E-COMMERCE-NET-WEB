@@ -146,8 +146,8 @@ namespace WebApplication1
                 int stockMinimo = int.Parse(txtStockMinimo.Text);
                 string descripcion = txtDescripcion.Text;
                 int idCategoria = int.Parse(dropDownListCategoria.Text);
-                int idProveedor = int.Parse(dropDownListMarca.Text);
-                int idMarca = int.Parse(dropDownListprov.Text);
+                int idProveedor = int.Parse(dropDownListprov.Text);
+                int idMarca = int.Parse(dropDownListMarca.Text);
 
                     //int idProveedor = int.Parse(txtIdProveedor.Text);
                     //int idCategoria = int.Parse(txtIdCategoria.Text);

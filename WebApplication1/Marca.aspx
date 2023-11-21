@@ -44,7 +44,7 @@
 
 
 
-
+    <asp:Button ID="ButtonNuevaMarca" OnClick="ButtonNuevaMarca_Click" class="btn btn-warning margen-botones" runat="server" Text="NUEVA MARCA" />
 
 
 
@@ -52,11 +52,11 @@
 
              <h2 class="my-4 p-3 text-center bg-primary text-light">MARCAS</h2>
 
-            <asp:GridView ID="GridViewMarca" runat="server" OnSelectedIndexChanged="GridViewMarca_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames ="IdMarca" CssClass="table table-bordered table-striped table-hover">
+            <asp:GridView ID="GridViewMarca" runat="server"  AutoGenerateColumns="False"  CssClass="table table-bordered table-striped table-hover">
                 <Columns>
           <asp:BoundField DataField="idMarca" HeaderText="ID marca" ReadOnly ="true" />
           <asp:BoundField DataField="nomMarca" HeaderText="Nombre" />
-                    <asp:CommandField ShowSelectButton ="true" SelectText ="SELECCIONAR" />
+
 
                 </Columns>
                    </asp:GridView> 

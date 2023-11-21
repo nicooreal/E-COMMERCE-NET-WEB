@@ -72,6 +72,7 @@
     <Content Include="Compra.aspx" />
     <Content Include="DetalleCliente.aspx" />
     <Content Include="DetalleCompra.aspx" />
+    <Content Include="DetalleMarca.aspx" />
     <Content Include="DetalleProducto.aspx" />
     <Content Include="DetalleProveedor.aspx" />
     <Content Include="DetalleVendedor.aspx" />
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="DetalleCompra.aspx.designer.cs">
       <DependentUpon>DetalleCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleMarca.aspx.cs">
+      <DependentUpon>DetalleMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleMarca.aspx.designer.cs">
+      <DependentUpon>DetalleMarca.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetalleProducto.aspx.cs">
       <DependentUpon>DetalleProducto.aspx</DependentUpon>
