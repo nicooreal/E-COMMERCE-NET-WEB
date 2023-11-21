@@ -171,4 +171,14 @@ select * from Clientes
 update Ventas set idVendedor = 2 where idCliente = 1
 
 
-select C.nombreFantasia as nombreCliente, V.idVenta as idVenta, V.fecha as fecha, V.idCliente as idCliente, V.observacion as observacion,V.idVenta as idVenta,V.idVendedor as idVendedor, vend.nombre as nombreVendedor  from Ventas V  inner join Vendedores vend on vend.idVendedor = V.idVendedor inner join Clientes C on V.idCliente = C.idCliente
+
+	
+	
+	SELECT V.idVenta, SUM(DetV.cantidad * DetV.precio) as totalVenta, SUM( DetV.cantidad) as cantidadProductos, C.nombreFantasia as nombreCliente,  V.fecha as fecha, V.idCliente as idCliente,  V.observacion as observacion, V.idVendedor as idVendedor, vend.nombre as nombreVendedor   FROM  Ventas V   INNER JOIN Vendedores vend ON vend.idVendedor = V.idVendedor  INNER JOIN Clientes C ON V.idCliente = C.idCliente  INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta, C.nombreFantasia, V.fecha, V.idCliente, V.observacion, V.idVendedor, vend.nombre;
+
+
+select DetV.cantidad as cantidadPRoductos, DetV.precio, (DetV.precio * DetV.cantidad) as totalPorProducto, P.nombre as nombreProducto,  V.idVenta as idVenta from Ventas V  
+inner join Vendedores vend on vend.idVendedor = V.idVendedor 
+inner join Detalles_Venta DetV on DetV.idVenta = V.idVenta 
+inner join Productos P on P.idProducto = DetV.idProducto
+      

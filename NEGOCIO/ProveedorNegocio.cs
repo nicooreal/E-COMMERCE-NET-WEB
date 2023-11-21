@@ -11,9 +11,9 @@ namespace NEGOCIO
     public class ProveedorNegocio
     {
 
-        List<Proveedor> listaProveedor = new List<Proveedor>();
         public List<Proveedor> listar()
         {
+        List<Proveedor> listaProveedor = new List<Proveedor>();
 
 
 

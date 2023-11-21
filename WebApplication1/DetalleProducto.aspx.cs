@@ -33,6 +33,28 @@ namespace WebApplication1
                 ProductoNegocio productoNegocio = new ProductoNegocio();
                 List<Producto> lista = productoNegocio.listar();
                 Producto produc = lista.Find(x => x.id == idEditar);
+                
+
+                ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
+                    List<DOMINIO.Proveedor> listaProv = proveedorNegocio.listar();
+
+                 MarcaNegocio marcaNegocio = new MarcaNegocio();
+                    List<Marcas> listaMarca = marcaNegocio.listar();
+
+                    CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                    List<Categoria> listaCategoria = categoriaNegocio.listar();
+
+
+                    dropDownListprov.DataSource = listaProv;
+                    dropDownListCategoria.DataSource = listaCategoria;
+                    dropDownListMarca.DataSource = listaMarca;
+
+
+
+
+
+
+
 
 
                     if (idEditar > 0)
@@ -45,10 +67,17 @@ namespace WebApplication1
                 txtStockActual.Text = produc.stockActual.ToString();
                 txtStockMinimo.Text = produc.stockMinimo.ToString();
                 txtDescripcion.Text = produc.descripcion.ToString();
-                //txtIdProveedor.Text = produc.proveedor.idProveedor.ToString();
-                //    txtIdMarca.Text = produc.idmarca.idMarca.ToString();
-                //txtIdCategoria.Text = produc.idcategoria.idCategoria.ToString();
 
+
+                        //dropDownListprov.DataTextField = produc.proveedor.nombreEmpresa;
+                        //dropDownListprov.DataValueField = produc.proveedor.idProveedor.ToString();
+
+                        //dropDownListMarca.DataTextField = produc.idmarca.nomMarca;
+                        //dropDownListMarca.DataValueField = produc.idmarca.idMarca.ToString();
+
+                        //dropDownListCategoria.DataTextField = produc.idcategoria.nomCategoria;
+                        //dropDownListCategoria.DataValueField = produc.idcategoria.idCategoria.ToString();
+                    
                     }
 
                 if (idEditar == 0) 
@@ -59,36 +88,30 @@ namespace WebApplication1
 
                 txtId.Text = (cantidadElementosLIsta + 1).ToString();
                 
-                } 
+
+
                 
-                else 
-                {
-
-
-
-
-                }
+              
 
                  
 
-                    dropDownListprov.DataSource = lista;
-                    dropDownListprov.DataTextField = "proveedor";
-                    dropDownListprov.DataValueField = "id";
+                } 
+                  
+                    dropDownListprov.DataTextField = "nombreEmpresa";
+                    dropDownListprov.DataValueField = "idProveedor";
                     dropDownListprov.DataBind();
                     
-                    dropDownListCategoria.DataSource = lista;
-                    dropDownListCategoria.DataTextField = "idcategoria";
-                    dropDownListCategoria.DataValueField = "id";
+                 
+                    dropDownListCategoria.DataTextField = "nomCategoria";
+                    dropDownListCategoria.DataValueField = "idCategoria";
                     dropDownListCategoria.DataBind();
 
-                    dropDownListMarca.DataSource = lista;
-                    dropDownListMarca.DataTextField = "idmarca";
-                    dropDownListMarca.DataValueField = "id";
+                 
+                    dropDownListMarca.DataTextField = "nomMarca";
+                    dropDownListMarca.DataValueField = "idMarca";
                     dropDownListMarca.DataBind();
 
              
-
-
                 }
                 
 
