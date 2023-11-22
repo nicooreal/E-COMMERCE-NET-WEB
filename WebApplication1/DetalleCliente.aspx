@@ -47,34 +47,29 @@
 <br />
  </div>
 
-   <div class="mb-3">
-<label for="txtPrecioCompra">Precio de Compra:</label>
-<asp:TextBox ID="txtPrecioCompra" class="form-control custom-textbox" runat="server" />
-<br />
-  </div>
 
 <%--<label for="txtIdMarca">ID de Marca:</label>
 <asp:TextBox ID="txtIdMarca" runat="server" class="form-control custom-textbox" />
 <br />--%>
-        <asp:DropDownList ID="dropDownListMarca"  runat="server"></asp:DropDownList>
+     
 
 
     </div>
     <div class="col">
 
-<label for="txtPrecioVenta">Precio de Venta:</label>
-<asp:TextBox ID="txtPrecioVenta" class="form-control custom-textbox" runat="server" />
-<br />
+<label for="txtCorreo">Correo:</label>
+<asp:TextBox ID="TxtCorreo" CssClass="form-control custom-textbox" runat="server" />
+ <br />
 
 <%--<label for="txtIdCategoria">ID de Categoría:</label>
 <asp:TextBox ID="txtIdCategoria" runat="server" class="form-control custom-textbox" />
 <br />--%>
 
 
-<label for="txtStockActual">Stock Actual:</label>
-<asp:TextBox ID="txtStockActual" runat="server" class="form-control custom-textbox" />
-<br />
-        <asp:DropDownList ID="dropDownListCategoria"  runat="server"></asp:DropDownList>
+
+<label for="txtFechaNacimiento">Direccion:</label>
+ <asp:TextBox ID="TxtFechaNacimiento" CssClass="form-control custom-textbox" runat="server" />
+ <br />  
 
 
 
@@ -83,21 +78,18 @@
     <div class="col">
 
 
+   <div class="mb-3">
+ <label for="txtDireccion">Direccion:</label>
+ <asp:TextBox ID="TextBoxDireccion" CssClass="form-control custom-textbox" runat="server" />
+ <br />
+  </div>
 
 
-<label for="txtStockMinimo">Stock Mínimo:</label>
-<asp:TextBox ID="txtStockMinimo" runat="server" class="form-control custom-textbox" />
+ <label for="txtTelefono">Telefono:</label>
+<asp:TextBox ID="TxtTelefono" CssClass="form-control custom-textbox" runat="server" />
 <br />
 
-<label for="txtDescripcion">Descripción:</label>
-<asp:TextBox ID="txtDescripcion" runat="server"  class="form-control custom-textbox"/>
-<br />
 
-<%--<label for="txtIdProveedor">ID de Proveedor:</label>
-<asp:TextBox ID="txtIdProveedor" runat="server" class="form-control custom-textbox" />--%>
-
-
-        <asp:DropDownList ID="dropDownListprov"  runat="server"></asp:DropDownList>
 
  
    
@@ -113,8 +105,8 @@
    
  <div class="btn-group mb-3 " role="group" aria-label="Basic mixed styles example">
   
-<asp:Button ID="ButtonBajaLogica"  class="btn btn-danger" runat="server" Text="ELIMINAR" OnClick="ButtonBajaLogica_Click" />
-<asp:Button ID="ButtonEditar" runat="server" Text="GUARDAR" class="btn btn-success"  OnClick="ButtonEditar_Click" />   
+<asp:Button ID="ButtonBajaLogica"  class="btn btn-danger" runat="server" Text="ELIMINAR"  />
+<asp:Button ID="ButtonEditar" runat="server" Text="GUARDAR" class="btn btn-success"  />   
 
 
 
@@ -129,7 +121,7 @@
 <div class="form-check">
 <asp:CheckBox ID="CheckBoxBaja" class="form-check-input"  runat="server" />
 <asp:Label class="form-check-label" ID="LabelBajaProducto" runat="server" >
- ELIMINAR PRODUCTO
+ ELIMINAR CLIENTE
 </asp:Label>
     </div>
 

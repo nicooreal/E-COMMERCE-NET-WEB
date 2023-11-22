@@ -33,5 +33,10 @@ namespace WebApplication1
             var id = GridViewClientes.SelectedDataKey.Value.ToString();
             Response.Redirect("DetalleCliente.aspx?id=" + id);
         }
+
+        protected void ButtonNuevoProd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DetalleCliente.aspx?id=" + 0);
+        }
     }
 }
