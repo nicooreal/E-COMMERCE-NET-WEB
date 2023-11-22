@@ -67,8 +67,8 @@
 
 
 
-<label for="txtFechaNacimiento">Direccion:</label>
- <asp:TextBox ID="TxtFechaNacimiento" CssClass="form-control custom-textbox" runat="server" />
+<label for="txtFechaNacimiento">Fecha del alta:</label>
+ <asp:TextBox ID="TxtFechaNacimiento" type="date" CssClass="form-control custom-textbox" runat="server" />
  <br />  
 
 

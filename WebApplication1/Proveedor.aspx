@@ -44,7 +44,7 @@
 
 
 
-
+             <asp:Button ID="ButtonNuevoProveedor" OnClick="ButtonNuevoProveedor_Click" class="btn btn-warning margen-botones" runat="server" Text="NUEVO PROVEEDOR" />
 
                     <asp:GridView ID="GridViewProveedores" runat="server" AutoGenerateColumns="False" DataKeyNames ="idProveedor" OnSelectedIndexChanged="GridViewProveedores_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover" >
                 <Columns>

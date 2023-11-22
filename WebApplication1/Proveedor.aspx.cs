@@ -36,8 +36,11 @@ namespace WebApplication1
                 var id = GridViewProveedores.SelectedDataKey.Value.ToString();
                 Response.Redirect("DetalleProveedor.aspx?id=" + id);
             }
-        
 
+        protected void ButtonNuevoProveedor_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DetalleProveedor.aspx?id=" + 0);
+        }
     }
 
 }
