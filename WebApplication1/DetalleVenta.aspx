@@ -63,8 +63,29 @@
     <asp:Label runat="server" ID="labelDetalleVenta"  BackColor="Orange"></asp:Label>
     </b>
 </div>
+   
 
-    <asp:Button ID="ButtonEntregado" runat="server" Text="PASAR A ENTREGADO" class="btn btn-success" OnClick="ButtonEntregado_Click" />
+    <section>
+
+        
+        <asp:Button ID="ButtonEntregado" runat="server" Text="PASAR A ENTREGADO" class= "btn btn-outline-success" OnClick="ButtonEntregado_Click" />
     <asp:Label ID="Labelentrega" runat="server" ></asp:Label>
     <br />
+
+    </section>
+  
+    
+
+    <section>
+
+
+
+    <asp:Button ID="ButtonAnulaEntrega" runat="server" Text="ANULAR ENTREGA" class="btn btn-outline-warning" OnClick="ButtonAnulaEntrega_Click" />
+    <asp:Label ID="LabelAnularEntrega" runat="server" ></asp:Label>
+    <br />
+
+    </section>
+  
+
+
 </asp:Content>

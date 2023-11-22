@@ -54,11 +54,11 @@
                     <asp:TextBox ID="TextBoxDireccion" CssClass="form-control custom-textbox" runat="server" />
                     <br />
 
-                        <label for="txtCorreo">Correo;</label>
+                        <label for="txtCorreo">Correo:</label>
                     <asp:TextBox ID="TxtCorreo" CssClass="form-control custom-textbox" runat="server" />
                     <br />
 
-                                <label for="txtFechaNacimiento">Direccion:</label>
+                                <label for="txtFechaNacimiento">Fecha de nacimiento:</label>
                     <asp:TextBox ID="TxtFechaNacimiento" type="date" CssClass="form-control custom-textbox" runat="server" />
                     <br />
 

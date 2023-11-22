@@ -15,6 +15,8 @@ namespace WebApplication1
         {
 
             int idSeleccionado = int.Parse(Request.QueryString["id"]);
+          
+            Session.Add("idVenta",idSeleccionado);
 
             DetalleVentaNegocio detVenta = new DetalleVentaNegocio();
              List<DOMINIO.DetalleVenta> listaDetalleVenta =  detVenta.listarDetalleVenta();
@@ -34,17 +36,26 @@ namespace WebApplication1
 
         protected void ButtonEntregado_Click(object sender, EventArgs e)
         {
-            
-            AccesoDatos datos = new AccesoDatos();
-           
-            int idSeleccionado = int.Parse(Request.QueryString["id"]);
-             string a = Session["id"].ToString();
+
+           int idSeleccionado =  (int)Session["idVenta"];
+  
 
 
             VentaNegocio ventaNegocio = new VentaNegocio();
             ventaNegocio.pasarAEntregado(idSeleccionado);
-        
-        
+             Labelentrega.Text = "PEDIDO ENTREGADO";
+             Labelentrega.ForeColor = System.Drawing.Color.Green;
+        LabelAnularEntrega.ForeColor = System.Drawing.Color.White;
+        }
+
+        protected void ButtonAnulaEntrega_Click(object sender, EventArgs e)
+        {
+            int idSeleccionado = (int)Session["idVenta"];
+            VentaNegocio ventaNegocio = new VentaNegocio();
+            ventaNegocio.anularEntrega(idSeleccionado);
+            LabelAnularEntrega.Text = "ENTREGA ANULADA";
+            LabelAnularEntrega.ForeColor = System.Drawing.Color.Red;
+            Labelentrega.ForeColor = System.Drawing.Color.White;
         }
     }
 }

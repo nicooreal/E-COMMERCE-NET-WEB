@@ -125,7 +125,7 @@ CREATE TABLE Vendedores (
 
 /*pongo estado en donde faltaba*/
 alter table Ventas
-add entregado int not null  check(entregado = 1 or entregado = 0) default  0
+add entregado bit not null  check(entregado = 1 or entregado = 0) default  0
 
 alter table Compras
 add entregado int not null  check(entregado = 1 or entregado = 0) default  0
@@ -138,6 +138,7 @@ alter table Proveedores
 add estado int not null  check(estado = 1 or estado = 0) default  1
 
 
+; -- Reemplaza 'nombre_restriccion' con el nombre de tu restricción CHECK
 
 
 
@@ -145,18 +146,22 @@ add estado int not null  check(estado = 1 or estado = 0) default  1
 
 
 
+update Ventas set entregado = 0 where idVenta = @id
 
 
-
-
+select * from Ventas
 
 
 
 
 	
+SELECT V.idVenta, V.entregado as entregado, SUM(DetV.cantidad * DetV.precio) as totalVenta, SUM( DetV.cantidad) as cantidadProductos, C.nombreFantasia as nombreCliente,
+V.fecha as fecha, V.idCliente as idCliente,  V.observacion as observacion, V.idVendedor as idVendedor, vend.nombre as nombreVendedor   
+FROM  Ventas V   INNER JOIN Vendedores vend ON vend.idVendedor = V.idVendedor  
+INNER JOIN Clientes C ON V.idCliente = C.idCliente  
+INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta, C.nombreFantasia, V.fecha, V.idCliente, V.observacion, V.idVendedor, vend.nombre, V.entregado
 
 
 
 
 
-eedores
