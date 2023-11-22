@@ -11,14 +11,14 @@ namespace NEGOCIO
     {
 
       
+        public  List<Venta> listaVentas = new List<Venta>();
         public List<Venta> listarVenta()
         {
 
         AccesoDatos datos = new AccesoDatos();
 
-        List<Venta> listaVentas = new List<Venta>();
 
-            datos.setearQuery("\tSELECT V.idVenta, SUM(DetV.cantidad * DetV.precio) as totalVenta, SUM( DetV.cantidad) as cantidadProductos, C.nombreFantasia as nombreCliente,  V.fecha as fecha, V.idCliente as idCliente,  V.observacion as observacion, V.idVendedor as idVendedor, vend.nombre as nombreVendedor   FROM  Ventas V   INNER JOIN Vendedores vend ON vend.idVendedor = V.idVendedor  INNER JOIN Clientes C ON V.idCliente = C.idCliente  INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta, C.nombreFantasia, V.fecha, V.idCliente, V.observacion, V.idVendedor, vend.nombre;\r\n\r\n ");
+            datos.setearQuery("\tSELECT V.idVenta, V.entregado as entregado, SUM(DetV.cantidad * DetV.precio) as totalVenta, SUM( DetV.cantidad) as cantidadProductos, C.nombreFantasia as nombreCliente,  V.fecha as fecha, V.idCliente as idCliente,  V.observacion as observacion, V.idVendedor as idVendedor, vend.nombre as nombreVendedor   FROM  Ventas V   INNER JOIN Vendedores vend ON vend.idVendedor = V.idVendedor  INNER JOIN Clientes C ON V.idCliente = C.idCliente  INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta, C.nombreFantasia, V.fecha, V.idCliente, V.observacion, V.idVendedor, vend.nombre, V.entregado   \r\n\r\n ");
 
 
             datos.ejecutarLectura();
@@ -64,6 +64,10 @@ namespace NEGOCIO
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("cantidadProductos")))
                     vent.cantidadDeProductos = (int)datos.Lector["cantidadProductos"];
 
+                if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("entregado")))
+                  
+                    vent.entregado = (bool)datos.Lector["entregado"];
+              
 
                 listaVentas.Add(vent);
             
@@ -77,12 +81,24 @@ namespace NEGOCIO
         }
         
 
+        public void pasarAEntregado(int idEntregado)
+        {
 
-        
+            AccesoDatos datos = new AccesoDatos();
 
-     
+            datos.setParameters("@id", idEntregado);
 
-       
+            datos.setearQuery("update Ventas set entregado = 0 where idVenta = @id"); 
+            datos.ejecutarLectura();
+            datos.cerrarConexion();
+
+
+        }
+
+
+
+
+
 
 
 

@@ -32,6 +32,19 @@ namespace WebApplication1
         
         }
 
+        protected void ButtonEntregado_Click(object sender, EventArgs e)
+        {
+            
+            AccesoDatos datos = new AccesoDatos();
+           
+            int idSeleccionado = int.Parse(Request.QueryString["id"]);
+             string a = Session["id"].ToString();
 
+
+            VentaNegocio ventaNegocio = new VentaNegocio();
+            ventaNegocio.pasarAEntregado(idSeleccionado);
+        
+        
+        }
     }
 }

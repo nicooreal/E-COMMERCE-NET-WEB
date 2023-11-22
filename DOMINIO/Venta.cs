@@ -9,10 +9,10 @@ namespace DOMINIO
     public class Venta
     {
        
+        public bool entregado { get; set; }
         public DateTime fechaVenta { get; set; }
         public int codigo { get; set; }
         public Vendedor vendedor { get; set; }
-        public List<Producto> listaProductosVenta { get; set; }
         public Cliente cliente { get; set; }
         public float descuento { get; set; }
         public decimal total { get; set; }

@@ -59,6 +59,9 @@
         <asp:BoundField DataField="fechaVenta" HeaderText="Fecha de venta" />
         <asp:BoundField DataField="observacion" HeaderText="observacion" />             
         <asp:BoundField DataField="cantidadDeProductos" HeaderText="Cantidad de productos" />   
+        <asp:checkBoxField DataField="entregado"  HeaderText="Entregado" ReadOnly ="true" />
+       
+                    
                     <asp:BoundField DataField="total" HeaderText="Total" />
 
 <%--      <asp:BoundField DataField="Proveedor.IdProveedor" HeaderText="Proveedor" /> --%>

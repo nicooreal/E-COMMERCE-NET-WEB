@@ -64,6 +64,7 @@
     </b>
 </div>
 
-
-
+    <asp:Button ID="ButtonEntregado" runat="server" Text="PASAR A ENTREGADO" class="btn btn-success" OnClick="ButtonEntregado_Click" />
+    <asp:Label ID="Labelentrega" runat="server" ></asp:Label>
+    <br />
 </asp:Content>
