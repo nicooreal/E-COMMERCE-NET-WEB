@@ -39,7 +39,7 @@
 
    <div class="mb-3">
 <label for="exampleFormControlTextarea1" class="form-label">ID:</label>
-<asp:TextBox ID="txtId" class="form-control custom-textbox" runat="server" ReadOnly ="true" />
+<asp:TextBox ID="txtId" class="form-control custom-textbox" type="number" runat="server" ReadOnly ="true" />
 <br />
             </div>
 
@@ -51,7 +51,7 @@
 
    <div class="mb-3">
 <label for="txtPrecioCompra">Precio de Compra:</label>
-<asp:TextBox ID="txtPrecioCompra" class="form-control custom-textbox" runat="server" />
+<asp:TextBox ID="txtPrecioCompra" type="number" class="form-control custom-textbox" runat="server" />
 <br />
   </div>
 
@@ -65,7 +65,7 @@
     <div class="col">
 
 <label for="txtPrecioVenta">Precio de Venta:</label>
-<asp:TextBox ID="txtPrecioVenta" class="form-control custom-textbox" runat="server" />
+<asp:TextBox ID="txtPrecioVenta" type="number" class="form-control custom-textbox" runat="server" />
 <br />
 
 <%--<label for="txtIdCategoria">ID de Categoría:</label>
@@ -74,7 +74,7 @@
 
 
 <label for="txtStockActual">Stock Actual:</label>
-<asp:TextBox ID="txtStockActual" runat="server" class="form-control custom-textbox" />
+<asp:TextBox ID="txtStockActual" runat="server" type="number" class="form-control custom-textbox" />
 <br />
         <asp:DropDownList ID="dropDownListCategoria"  runat="server"></asp:DropDownList>
 
@@ -88,7 +88,7 @@
 
 
 <label for="txtStockMinimo">Stock Mínimo:</label>
-<asp:TextBox ID="txtStockMinimo" runat="server" class="form-control custom-textbox" />
+<asp:TextBox ID="txtStockMinimo" runat="server" type="number" class="form-control custom-textbox" />
 <br />
 
 <label for="txtDescripcion">Descripción:</label>

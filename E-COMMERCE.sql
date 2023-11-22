@@ -29,6 +29,8 @@ CREATE TABLE Categorias (
 )
 
 
+
+
 CREATE TABLE Productos (
   idProducto INT PRIMARY KEY IDENTITY (1, 1),
   nombre VARCHAR(50) not null,
@@ -182,3 +184,9 @@ inner join Vendedores vend on vend.idVendedor = V.idVendedor
 inner join Detalles_Venta DetV on DetV.idVenta = V.idVenta 
 inner join Productos P on P.idProducto = DetV.idProducto
       
+
+
+	  INSERT INTO Productos (nombre, precioCompra, precioVenta, idMarca, idCategoria, stockActual, stockMinimo, estado, descripcion, idProveedor)
+VALUES ('play 4', 5,6 ,2 , 2, 5,3, 1, 'descripcion qcyo', 2);
+
+select * from Proveedores

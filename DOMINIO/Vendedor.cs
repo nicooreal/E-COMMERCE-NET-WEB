@@ -10,7 +10,7 @@ namespace DOMINIO
     {
         public int idVendedor { get; set; }
         public int legajo { get; set; }
-        public List<Vendedor> listaVendedor { get; set; }
+        
 
     
     

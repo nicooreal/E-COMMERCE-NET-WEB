@@ -42,7 +42,8 @@
 
      <h2 class="my-4 p-3 text-center bg-primary text-light">VENDEDORES</h2>
 
-
+    
+    <asp:Button ID="ButtonNuevoVendedor" OnClick="ButtonNuevoVendedor_Click" class="btn btn-warning margen-botones" runat="server" Text="NUEVO VENDEDOR" />
 
 
 
@@ -53,7 +54,7 @@
    <asp:BoundField DataField="Direccion" HeaderText="Direccion" />        
    <asp:BoundField DataField="telefono" HeaderText="Telefono" />
    <asp:BoundField DataField="correo" HeaderText="Correo" />
-  <asp:BoundField DataField="fechaNacimiento" HeaderText=" Fecha de Alta " />
+  <asp:BoundField DataField="fechaNacimiento" HeaderText=" Nacimiento " />
                
    <asp:CommandField ShowSelectButton ="true" SelectText ="SELECCIONAR" />
 

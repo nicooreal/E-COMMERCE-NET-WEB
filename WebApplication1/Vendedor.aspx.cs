@@ -40,6 +40,9 @@ namespace WebApplication1
 
 
 
-
+        protected void ButtonNuevoVendedor_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DetalleVendedor.aspx?id=" + 0);
+        }
     }
 }

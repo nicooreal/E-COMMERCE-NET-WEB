@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NEGOCIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,45 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            int idEditar = int.Parse(Request.QueryString["id"]);
+            VendedorNegocio vendNegocio = new VendedorNegocio();
+            List<DOMINIO.Vendedor> vendedorList = new List<DOMINIO.Vendedor>();
+            vendedorList= vendNegocio.listar();
+
+          
+            if (idEditar > 0)
+            {
+
+
+
+
+            }
+            else
+            {
+
+
+
+
+
+            int cantidadDeVendedores = vendedorList.Count;
+            txtID.Text = (cantidadDeVendedores + 1).ToString();
+
+            }
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
     }
