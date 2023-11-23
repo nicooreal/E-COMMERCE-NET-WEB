@@ -132,11 +132,16 @@ namespace WebApplication1
         protected void ButtonEditar_Click(object sender, EventArgs e)
         {
 
+
+            try
+            {
+
              AccesoDatos datos = new AccesoDatos();
              int idEditar = int.Parse(Request.QueryString["id"]);
 
 
 
+               
 
                 int id = int.Parse(txtId.Text);
                 string nombrenuevo = txtNombre.Text;
@@ -149,10 +154,9 @@ namespace WebApplication1
                 int idProveedor = int.Parse(dropDownListprov.Text);
                 int idMarca = int.Parse(dropDownListMarca.Text);
 
-                    //int idProveedor = int.Parse(txtIdProveedor.Text);
-                    //int idCategoria = int.Parse(txtIdCategoria.Text);
-                    //int idmarca = int.Parse(txtIdMarca.Text);
-
+            
+            
+          
 
                 datos.setParameters("@nombre", nombrenuevo);
                 datos.setParameters("@id", id);
@@ -160,7 +164,7 @@ namespace WebApplication1
                 datos.setParameters("@precioCompra", precioCompra);
                 datos.setParameters("@stockMinimo", stockMinimo);
                 datos.setParameters("@stockActual", stockActual);
-                datos.setParameters("@descripcion", descripcion);
+                datos.setParameters("@descripcion", (object)descripcion ?? DBNull.Value);
                 datos.setParameters("@idProveedor", idProveedor);
                 datos.setParameters("@idCategoria", idCategoria);
                 datos.setParameters("@idMarca", idMarca);
@@ -183,12 +187,26 @@ namespace WebApplication1
                 datos.cerrarConexion();
             
 
+            }
+            catch (Exception ex)
+            {
+
+               
+                    LabelConfirmacion.ForeColor.ToArgb();
+                    LabelConfirmacion.Text = "HAY CAMPOS OBLIGATORIOS";
+
+                  
+                
+
+                throw ex;
+            }
+
 
 
         }
 
         protected void ButtonBajaLogica_Click(object sender, EventArgs e)
-          {
+         {
           
            
         if ( IsPostBack)
@@ -215,7 +233,7 @@ namespace WebApplication1
         
          }            
             
-          }
+              }
     }
     
 }
