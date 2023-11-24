@@ -41,12 +41,14 @@
 </style>
 
 
+    <%if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN)  %>   
 
+<%{%>
 
 
     <asp:Button ID="ButtonNuevaMarca" OnClick="ButtonNuevaMarca_Click" class="btn btn-warning margen-botones" runat="server" Text="NUEVA MARCA" />
 
-
+   <% }%>
 
 
 

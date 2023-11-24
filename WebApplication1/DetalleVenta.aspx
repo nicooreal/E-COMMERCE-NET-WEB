@@ -64,7 +64,9 @@
     </b>
 </div>
    
+        <%if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN)  %>   
 
+<%{%>
     <section>
 
         
@@ -80,12 +82,13 @@
 
 
 
+
     <asp:Button ID="ButtonAnulaEntrega" runat="server" Text="ANULAR ENTREGA" class="btn btn-outline-warning" OnClick="ButtonAnulaEntrega_Click" />
     <asp:Label ID="LabelAnularEntrega" runat="server" ></asp:Label>
     <br />
 
     </section>
   
-
+   <% }%>
 
 </asp:Content>

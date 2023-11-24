@@ -11,7 +11,7 @@ namespace NEGOCIO
 {
     public class UsuarioNegocio
     {
-        public bool Loguear(Usuario usuario)
+        public bool Loguear( Usuario usuario)
         {
 			AccesoDatos datos = new AccesoDatos();
 			try
@@ -23,8 +23,25 @@ namespace NEGOCIO
 				while (datos.Lector.Read())
 				{
 					usuario.Id = (int)datos.Lector["Id"];
-					usuario.TipoUsuario = (int)(datos.Lector["tipouser"]) == 2 ? TipoUsuario.ADMIN : TipoUsuario.VENDEDOR;
-					return true;
+
+              
+
+                    //usuario.TipoUsuario = (int)(datos.Lector["tipouser"]) == 2 ? TipoUsuario.ADMIN : TipoUsuario.VENDEDOR;
+					
+				 if ((int)(datos.Lector["tipouser"]) == 2) 
+					{ 
+						usuario.TipoUsuario = TipoUsuario.ADMIN;  
+					}
+
+                if ((int)(datos.Lector["tipouser"]) == 1)
+					{
+						usuario.TipoUsuario = TipoUsuario.VENDEDOR; 
+					}
+
+
+
+
+                    return true;
 				}
 				return false;
             }

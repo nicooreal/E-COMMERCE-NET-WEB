@@ -39,6 +39,8 @@ namespace WebApplication1
             {
                 usuario = new Usuario(txtUser.Text, txtContraseña.Text, false);
                 if (negocio.Loguear(usuario))
+                
+                
                 {
                     Session.Add("usuario", usuario);
                     Response.Redirect("Menu.aspx", false);

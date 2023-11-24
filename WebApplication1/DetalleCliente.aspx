@@ -20,7 +20,9 @@
 
  
 
+<%if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN)  %>   
 
+<%{%>
 
 
 
@@ -136,7 +138,7 @@
 
 
 
-
+  <% } else   { %>         <asp:Label ID="LabelDePermisos" runat="server" Text="NO TIENE ACCESO A ESTA PANTALLA"></asp:Label>                   <% }%>
 
 
 </asp:Content>

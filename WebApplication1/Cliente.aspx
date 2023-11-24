@@ -50,7 +50,16 @@
              <h2 class="my-4 p-3 text-center bg-primary text-light">CLIENTES</h2>
 
 
+            <%if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN)  %>   <%{ %> 
+
+
         <asp:Button ID="ButtonNuevoProd" OnClick="ButtonNuevoProd_Click" class="btn btn-warning margen-botones" runat="server" Text="NUEVO CLIENTE" />
+
+
+                                                                                                                                    <%  }%>
+
+
+
 
             <asp:GridView ID="GridViewClientes" runat="server" AutoGenerateColumns="False" DataKeyNames ="Id" OnSelectedIndexChanged="GridViewClientes_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover">
                 <Columns>

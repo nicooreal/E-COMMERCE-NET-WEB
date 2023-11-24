@@ -42,13 +42,12 @@
     
          <h2 class="my-4 p-3 text-center bg-primary text-light">PRODUCTOS</h2>
 
-    
-
-
+        <%if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN)  %>   <%{ %> 
 
 
     <asp:Button ID="ButtonNuevoProd" OnClick="ButtonNuevoProd_Click" class="btn btn-warning margen-botones" runat="server" Text="NUEVO PRODUCTO" />
 
+                                                                                                                                    <%  }%>
    
 
 
@@ -64,12 +63,14 @@
         <asp:BoundField DataField="StockMinimo" HeaderText="Stock Mínimo" />
         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />             
         <asp:BoundField DataField="Proveedor.nombreEmpresa" HeaderText="Proveedor" /> 
-<%--      <asp:BoundField DataField="Proveedor.IdProveedor" HeaderText="Proveedor" /> --%>
                     <asp:CommandField ShowSelectButton ="true" SelectText ="SELECCIONAR" />
+
+                   
+
+ 
 
                 </Columns>
                    </asp:GridView>        
-        
         
         
   </asp:Content>

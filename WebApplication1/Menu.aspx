@@ -33,7 +33,9 @@
         
          
         
+        <%if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN)  %>   
 
+<%{%>
 
 
             <div class="col">
@@ -63,6 +65,42 @@
 
 
 
+                    <div class="col">
+            <div class="card">
+    <asp:ImageButton ID="vendedores" runat="server" class="card-img-top" OnClick="vendedores_Click" ImageUrl="https://img.freepik.com/vector-premium/concepto-ventas-adicionales-pequenos-vendedores-compradores-personajes-huge-pc-upselling-online-marketing-tecnica-venta-mas-rentable-promocion-compradores-obsequios-bonificaciones-ilustracion-vector-gente-dibujos-animados_87771-11845.jpg?w=740" />
+                   <div class="card-body">
+                <h5 class="card-title">Vendedores</h5>
+
+                    <p class="card-text">Acceso a nuestros vendedores</p>    
+                  
+            
+                            </div>
+                </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <% } %>
 
 
 
@@ -130,8 +168,7 @@
                             <div class="card-body">
                     <h5 class="card-title">Productos</h5>
                                 
-         <%if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN)
-     { } %>
+
                     <p class="card-text">Acceso a detalle de Productos .</p>    
                   
             
@@ -142,18 +179,6 @@
 
 
 
-                    <div class="col">
-            <div class="card">
-    <asp:ImageButton ID="vendedores" runat="server" class="card-img-top" OnClick="vendedores_Click" ImageUrl="https://img.freepik.com/vector-premium/concepto-ventas-adicionales-pequenos-vendedores-compradores-personajes-huge-pc-upselling-online-marketing-tecnica-venta-mas-rentable-promocion-compradores-obsequios-bonificaciones-ilustracion-vector-gente-dibujos-animados_87771-11845.jpg?w=740" />
-                   <div class="card-body">
-                <h5 class="card-title">Vendedores</h5>
-
-                    <p class="card-text">Acceso a nuestros vendedores</p>    
-                  
-            
-                            </div>
-                </div>
-                </div>
     </div>
     
        
