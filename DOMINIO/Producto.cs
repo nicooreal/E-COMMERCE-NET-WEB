@@ -8,7 +8,7 @@ namespace DOMINIO
 {
     public class Producto
     {
-
+        public int Codigo { get; set; }
         public int id { get; set; }
         public int stockActual { get; set; }
         public int stockMinimo { get; set; }

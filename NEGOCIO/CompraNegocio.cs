@@ -30,6 +30,35 @@ namespace NEGOCIO
 
 
 
+                    if (!(datos.Lector["id"] is DBNull))
+                        aux.id = (int)datos.Lector["id"];
+
+                  
+                    if (!(datos.Lector["fecha"] is DBNull))
+                        aux.fechaCompra = (DateTime)datos.Lector["fecha"];
+
+                    if (!(datos.Lector["nombre"] is DBNull))
+                        aux.Proveedor.nombre = (string)datos.Lector["nombre"];
+
+
+                    aux.Proveedor = new Proveedor();
+                    if (!(datos.Lector["dni"] is DBNull))
+                        aux.Proveedor.idProveedor = (char)datos.Lector["dni"];
+                    //aux.Producto = new Producto();
+                    //if (!(datos.Lector["IdProducto"] is DBNull))
+                    //    aux.Producto.Codigo = (int)datos.Lector["IdProducto"];
+
+                    if (!(datos.Lector["formaPago"] is DBNull))
+                        aux.metodoPago = (char)datos.Lector["formaPago"];
+
+
+
+
+
+
+
+
+
 
                     lista.Add(aux);
                 }

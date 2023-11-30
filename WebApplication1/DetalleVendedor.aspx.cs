@@ -1,5 +1,7 @@
-﻿using NEGOCIO;
+﻿using DOMINIO;
+using NEGOCIO;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,9 +20,18 @@ namespace WebApplication1
             List<DOMINIO.Vendedor> vendedorList = new List<DOMINIO.Vendedor>();
             vendedorList= vendNegocio.listar();
 
-          
+
             if (idEditar > 0)
             {
+
+
+                txtID.Text = vendedorList.Count.ToString();
+                txtNombre.Text = vendedorList.Count.ToString();     
+                TextBoxDireccion.Text = vendedorList.Count.ToString();
+         
+              
+                
+
 
 
 
