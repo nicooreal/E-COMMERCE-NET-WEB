@@ -26,7 +26,8 @@
 
    <div>
 <label for="txtProducto">Producto:</label>
-<asp:DropDownList ID="txtPoducto"  class="form-control custom-textbox" runat="server" />
+<asp:DropDownList ID="dropdonwListPoducto"  class="form-control custom-textbox" runat="server" OnSelectedIndexChanged="dropdonwListPoducto_SelectedIndexChanged" autopostback="true"  />
+       <asp:Label ID="lblPrecio" runat="server"></asp:Label>
 <br />
    </div>
    
@@ -39,8 +40,26 @@
    </div>
 
 
+        <asp:Button ID="ButtonSumarProducto" runat="server" Text="AGREGAR"  class="btn btn-primary" OnClick="ButtonSumarProducto_Click"/>
 
 
+
+                    <asp:GridView ID="GridViewNuevaVenta" runat="server" AutoGenerateColumns="False" DataKeyNames ="codigo" CssClass="table table-bordered table-striped table-hover">
+                <Columns>
+        <asp:BoundField DataField="nombreDeProducto" HeaderText="Nombre" ReadOnly ="true" />
+        <asp:BoundField DataField="cantidadDeProductos" HeaderText="Cantidad" />
+        <asp:BoundField DataField="precio" HeaderText="precio" />
+        <asp:BoundField DataField="totalPorProducto" HeaderText="total de producto" />  
+                    
+                    <%-- <asp:CommandField ShowSelectButton ="true" SelectText ="SELECCIONAR" />--%>
+
+                   
+
+ 
+
+                </Columns>
+                   </asp:GridView>        
+        
 
 
 

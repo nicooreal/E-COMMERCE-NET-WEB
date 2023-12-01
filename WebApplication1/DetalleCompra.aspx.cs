@@ -183,11 +183,11 @@ namespace WebApplication1
                     {
                         foreach (Producto producto in listaProductos)
                         {
-                            if (producto.Codigo.ToString() == codigo)
-                            {
-                                Bandera = true;
-                                break;
-                            }
+                            //if (producto.Codigo.ToString() == codigo)
+                            //{
+                            //    Bandera = true;
+                            //    break;
+                            //}
                         }
 
                     }
