@@ -82,6 +82,8 @@
     <Content Include="Login.aspx" />
     <Content Include="Marca.aspx" />
     <Content Include="Menu.aspx" />
+    <Content Include="nuevaVenta.aspx" />
+    <Content Include="nuevaVentaCliente.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="Proveedor.aspx" />
     <Content Include="Vendedor.aspx" />
@@ -196,6 +198,20 @@
     </Compile>
     <Compile Include="Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nuevaVenta.aspx.cs">
+      <DependentUpon>nuevaVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nuevaVenta.aspx.designer.cs">
+      <DependentUpon>nuevaVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nuevaVentaCliente.aspx.cs">
+      <DependentUpon>nuevaVentaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nuevaVentaCliente.aspx.designer.cs">
+      <DependentUpon>nuevaVentaCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>

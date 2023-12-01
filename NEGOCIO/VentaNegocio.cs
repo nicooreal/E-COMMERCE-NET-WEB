@@ -66,7 +66,7 @@ namespace NEGOCIO
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("entregado")))
 
-                    vent.entregado = (bool)datos.Lector["entregado"];
+                    vent.entregado = (string)datos.Lector["entregado"];
 
 
                 listaVentas.Add(vent);
@@ -88,7 +88,7 @@ namespace NEGOCIO
 
             datos.setParameters("@id", idEntregado);
 
-            datos.setearQuery("update Ventas set entregado = 1 where idVenta = @id");
+            datos.setearQuery("update Ventas set entregado = 'ENTREGADO' where idVenta = @id");
             datos.ejecutarLectura();
             datos.cerrarConexion();
 
@@ -102,7 +102,7 @@ namespace NEGOCIO
 
             datos.setParameters("@id", idEntregado);
 
-            datos.setearQuery("update Ventas set entregado = 0 where idVenta = @id");
+            datos.setearQuery("update Ventas set entregado = 'PENDIENTE' where idVenta = @id");
             datos.ejecutarLectura();
             datos.cerrarConexion();
 
@@ -114,5 +114,29 @@ namespace NEGOCIO
 
 
         }
+
+        public void eliminarVenta(int idEntregado)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.setParameters("@id", idEntregado);
+
+            datos.setearQuery("update Ventas set entregado = 'ELIMINADO' where idVenta = @id");
+            datos.ejecutarLectura();
+            datos.cerrarConexion();
+
+
+
+
+
+
+
+
+        }
+
+
+
+
     }
 }

@@ -9,7 +9,7 @@ namespace DOMINIO
     public class Venta
     {
        
-        public bool entregado { get; set; }
+        public string entregado { get; set; }
         public DateTime fechaVenta { get; set; }
         public int codigo { get; set; }
         public Vendedor vendedor { get; set; }

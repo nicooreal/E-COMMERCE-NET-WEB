@@ -11,52 +11,43 @@ namespace WebApplication1
 {
 
 
-    public partial class Venta
+    public partial class nuevaVenta
     {
 
         /// <summary>
-        /// Control ButtonNuevoProd.
+        /// Control txtClient.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonNuevoProd;
+        protected global::System.Web.UI.WebControls.TextBox txtClient;
 
         /// <summary>
-        /// Control Buttonlistartodos.
+        /// Control txtObservacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Buttonlistartodos;
+        protected global::System.Web.UI.WebControls.TextBox txtObservacion;
 
         /// <summary>
-        /// Control ButtonListaPendientes.
+        /// Control txtPoducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonListaPendientes;
+        protected global::System.Web.UI.WebControls.DropDownList txtPoducto;
 
         /// <summary>
-        /// Control ButtonListaEntregados.
+        /// Control TextBoxCantidadProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonListaEntregados;
-
-        /// <summary>
-        /// Control GridViewVentas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewVentas;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCantidadProducto;
     }
 }

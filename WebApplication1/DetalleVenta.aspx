@@ -8,6 +8,15 @@
         border: 1px solid #ff6a00; 
         font-weight: bold;
         }
+
+    .bottom-center {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+
 </style>
 
 
@@ -37,10 +46,11 @@
         margin: 20px; 
     }
 </style>
+    <div>
 
+ <asp:Button ID="ButtonVolverAVentas" runat="server" Text="VOLVER" class= "btn btn-dark" OnClick="ButtonVolverAVentas_Click" />
 
-  
-
+    </div>
 
                 <asp:GridView ID="GridViewDetalleVenta" runat="server" AutoGenerateColumns="False" DataKeyNames ="codigo"  CssClass="table table-bordered table-striped table-hover">
                 <Columns>
@@ -83,12 +93,23 @@
 
 
 
-    <asp:Button ID="ButtonAnulaEntrega" runat="server" Text="ANULAR ENTREGA" class="btn btn-outline-warning" OnClick="ButtonAnulaEntrega_Click" />
+    <asp:Button ID="ButtonAnulaEntrega" runat="server" Text="PASAR A PENDIENTE" class="btn btn-outline-warning" OnClick="ButtonAnulaEntrega_Click" />
     <asp:Label ID="LabelAnularEntrega" runat="server" ></asp:Label>
     <br />
 
     </section>
   
+ <aside class="bottom-center">
+    <asp:Button ID="ButtonEliminarVenta" runat="server" Text="ELIMINAR VENTA" class="btn btn-danger" OnClick="ButtonEliminarVenta_Click" />
+    <asp:Label ID="LabelEliminarVenta" runat="server"></asp:Label>
+    <br />
+</aside>
+
+
+
+
+
+
    <% }%>
 
 </asp:Content>
