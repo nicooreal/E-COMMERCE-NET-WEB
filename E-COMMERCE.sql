@@ -73,7 +73,8 @@ CREATE TABLE Usuarios (
     CONSTRAINT [PK_Usuarios] PRIMARY KEY CLUSTERED ([Id] ASC)
 )
 
-
+INSERT INTO Usuarios( Usuario, PASS, TipoUser) VALUES ('NIK', 'NIK' ,2)
+INSERT INTO Usuarios( Usuario, PASS, TipoUser) VALUES ('MATEO', 'MATEO' ,1)
 
 CREATE TABLE Detalles_Venta ( --Productos Vendidos---
   idVenta INT not null,
@@ -149,9 +150,9 @@ add estado int not null  check(estado = 1 or estado = 0) default  1
 update Ventas set entregado = 0 where idVenta = @id
 
 
-select * from Ventas
-
-
+select * from usuarios
+Select Id, usuario, pass, tipouser from Usuarios
+DELETE FROM USUARIOS
 
 
 	

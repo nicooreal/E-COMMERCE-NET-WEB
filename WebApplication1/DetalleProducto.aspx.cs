@@ -69,14 +69,11 @@ namespace WebApplication1
                 txtDescripcion.Text = produc.descripcion.ToString();
 
 
-                        //dropDownListprov.DataTextField = produc.proveedor.nombreEmpresa;
-                        //dropDownListprov.DataValueField = produc.proveedor.idProveedor.ToString();
+                        dropDownListprov.SelectedValue = produc.proveedor.idProveedor.ToString();
 
-                        //dropDownListMarca.DataTextField = produc.idmarca.nomMarca;
-                        //dropDownListMarca.DataValueField = produc.idmarca.idMarca.ToString();
+                        dropDownListMarca.SelectedValue = produc.idmarca.idMarca.ToString();
 
-                        //dropDownListCategoria.DataTextField = produc.idcategoria.nomCategoria;
-                        //dropDownListCategoria.DataValueField = produc.idcategoria.idCategoria.ToString();
+                        dropDownListCategoria.SelectedValue = produc.idcategoria.idCategoria.ToString();
                     
                     }
 
