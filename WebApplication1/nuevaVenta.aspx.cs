@@ -214,6 +214,11 @@ namespace WebApplication1
 
         protected void ButtonTerminarVenta_Click(object sender, EventArgs e)
         {
+
+            if (!IsPostBack)
+            {
+
+            
             AccesoDatos datos = new AccesoDatos();
 
             string observacion = TextObservacion.Text;
@@ -281,6 +286,7 @@ namespace WebApplication1
         }
 
 
+            }
 
         }
     }

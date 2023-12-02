@@ -54,5 +54,14 @@ namespace WebApplication1
         {
             Response.Redirect("Vendedor.aspx");
         }
+
+        protected void ButtonSalir_Click(object sender, EventArgs e)
+        {
+            if (Session["usuario"] != null)
+            {
+                Session.RemoveAll();
+            }
+            Response.Redirect("Login.aspx", false);
+        }
     }
 }

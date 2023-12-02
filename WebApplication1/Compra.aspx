@@ -1,10 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Compra.aspx.cs" Inherits="WebApplication1.Compra" MasterPageFile="~/master.Master" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
+    <asp:Content ID="head" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
 
     <style>

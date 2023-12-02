@@ -5,11 +5,9 @@
     
     <div style="display: flex; padding:20px; justify-content:end">
 
-        <div style="margin:5px">
-            <asp:LinkButton ID="lbtnPerfil" runat="server">Perfil</asp:LinkButton>
-        </div>
+
         <div style="margin:5px;">
-            <asp:LinkButton ID="lbtnConfiguracion" runat="server">Configuracion</asp:LinkButton>
+            <asp:Button ID="ButtonSalir" OnClick="ButtonSalir_Click" runat="server"  class="btn btn-link"  Text="SALIR DE SESION" />
         </div>
         
     </div>

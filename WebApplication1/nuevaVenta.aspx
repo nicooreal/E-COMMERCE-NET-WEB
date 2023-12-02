@@ -83,6 +83,6 @@
 
 
 
-            <asp:Label ID="LabelpedidoTerminado" runat="server"></asp:Label>
+            <asp:Label ID="LabelpedidoTerminado" runat="server" ></asp:Label>
            <br />
 </asp:Content>

@@ -41,8 +41,9 @@
 </style>
 
 
-
-
+        <br />
+        <asp:Label ID="LabelSelecCliente" runat="server" Text="SELECCIONE EL CLIENTE:" ForeColor="Red"></asp:Label>
+        <br />
 
 
 
