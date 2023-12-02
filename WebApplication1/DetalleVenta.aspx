@@ -52,10 +52,11 @@
 
     </div>
 
-                <asp:GridView ID="GridViewDetalleVenta" runat="server" AutoGenerateColumns="False" DataKeyNames ="codigo"  CssClass="table table-bordered table-striped table-hover">
+                <asp:GridView ID="GridViewDetalleVenta" runat="server" AutoGenerateColumns="False" DataKeyNames ="idDelProducto"  CssClass="table table-bordered table-striped table-hover">
                 <Columns>
 <%--        <asp:BoundField DataField="codigo" HeaderText="Codigo de venta" ReadOnly ="true" />--%>
-        <asp:BoundField DataField="nombreDeProducto" HeaderText="Tombre del producto" />
+        
+         <asp:BoundField DataField="nombreDeProducto" HeaderText="Tombre del producto" />
         <asp:BoundField DataField="cantidadDeProductos" HeaderText="Cantidad de productos" />             
         <asp:BoundField DataField="precio" HeaderText="Precio por unidad" />
         <asp:BoundField DataField="totalPorProducto" HeaderText="Total por producto producto" />

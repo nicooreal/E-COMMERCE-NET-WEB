@@ -16,6 +16,7 @@ namespace DOMINIO
         public string nombreDeProducto { get; set; }
 
       public decimal totalDeTodo { get; set; }
-    
+
+        public int idDelProducto { get; set; }
     }
 }

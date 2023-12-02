@@ -44,14 +44,15 @@
 
 
 
-                    <asp:GridView ID="GridViewNuevaVenta" runat="server" AutoGenerateColumns="False" DataKeyNames ="codigo" CssClass="table table-bordered table-striped table-hover">
+                    <asp:GridView ID="GridViewNuevaVenta" runat="server" AutoGenerateColumns="False" DataKeyNames ="idDelProducto" OnSelectedIndexChanged="GridViewNuevaVenta_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover">
                 <Columns>
+        <asp:BoundField DataField="idDelProducto" HeaderText="Cantidad" />
         <asp:BoundField DataField="nombreDeProducto" HeaderText="Nombre" ReadOnly ="true" />
         <asp:BoundField DataField="cantidadDeProductos" HeaderText="Cantidad" />
         <asp:BoundField DataField="precio" HeaderText="precio" />
         <asp:BoundField DataField="totalPorProducto" HeaderText="total de producto" />  
                     
-                    <%-- <asp:CommandField ShowSelectButton ="true" SelectText ="SELECCIONAR" />--%>
+                    <asp:CommandField ShowSelectButton ="true" SelectText ="ELIMINAR" />
 
                    
 
@@ -59,12 +60,15 @@
 
                 </Columns>
                    </asp:GridView>        
-        
 
 
 
+<div class="d-flex justify-content-center mb-3">
+    <b>
+            <asp:Label runat="server" ID="labeltotalVenta"   BackColor="Orange"></asp:Label>
 
-
+    </b>
+</div>
 
 
 

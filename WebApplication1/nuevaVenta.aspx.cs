@@ -98,10 +98,21 @@ namespace WebApplication1
             detVenta.precio = productoSeleccionado.precioVenta;
             detVenta.nombreDeProducto = productoSeleccionado.nombre;
             detVenta.cantidadDeProductos = int.Parse (TextBoxCantidadProducto.Text);
-            decimal totalPorProducto = int.Parse(TextBoxCantidadProducto.Text) * detVenta.precio; 
+            detVenta.idDelProducto = productoSeleccionado.id;
+
+            decimal totalPorProducto = int.Parse(TextBoxCantidadProducto.Text) * detVenta.precio;
+            detVenta.totalPorProducto = totalPorProducto;
 
 
-
+           
+            if ( listaDetalleVenta.Contains(detVenta ))
+            {
+                return;
+            }
+            
+            
+            
+            
             listaDetalleVenta.Add(detVenta);
 
             Session.Add("listaDetalleVenta", listaDetalleVenta);
@@ -111,8 +122,11 @@ namespace WebApplication1
             
             listaDetalleVentaSesion =   (List<DOMINIO.DetalleVenta>)Session["listaDetalleVenta"];
 
-                
+            decimal TotalDeVenta = listaDetalleVentaSesion.Sum(det => det.totalPorProducto);
 
+            labeltotalVenta.Text = ("TOTAL $" + TotalDeVenta).ToString();
+
+           
             GridViewNuevaVenta.DataSource = listaDetalleVentaSesion;
 
             GridViewNuevaVenta.DataBind();
@@ -147,6 +161,47 @@ namespace WebApplication1
             
             
             
+        }
+
+        protected void GridViewNuevaVenta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+           var  idEliminar = int.Parse( GridViewNuevaVenta.SelectedDataKey.Value.ToString());
+
+            
+            
+            List<DOMINIO.DetalleVenta> listaDetVenta = new List<DOMINIO.DetalleVenta>();
+
+            if (Session["listaDetalleVenta"] != null)
+            {
+                listaDetVenta = (List<DOMINIO.DetalleVenta>)Session["listaDetalleVenta"];
+
+
+                listaDetVenta.RemoveAll(det => det.idDelProducto == idEliminar);
+
+                
+                //Session["listaDetalleVenta"] = listaDetVenta;
+
+
+                Session.Add("listaDetalleVenta", listaDetVenta);
+
+                GridViewNuevaVenta.DataSource = listaDetVenta;
+
+                GridViewNuevaVenta.DataBind();
+
+
+
+                decimal TotalDeVenta = listaDetVenta.Sum(det => det.totalPorProducto);
+                labeltotalVenta.Text = "TOTAL $" + TotalDeVenta.ToString();
+
+            }
+
+
+
+
+
+
+
         }
     }
 }
