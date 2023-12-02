@@ -32,11 +32,17 @@ namespace WebApplication1
             if (!IsPostBack)
             {
 
+            VendedorNegocio vendedorNegocio = new VendedorNegocio();
+            List<DOMINIO.Vendedor> listaVendedor;
+            listaVendedor = vendedorNegocio.listar();
+
+                DropDownListVendedor.DataSource = listaVendedor;
+                DropDownListVendedor.DataTextField = "nombre";
+                DropDownListVendedor.DataValueField = "idVendedor";
+                DropDownListVendedor.DataBind();
 
 
-            
-
-            ProductoNegocio prodNegoci = new ProductoNegocio();
+                ProductoNegocio prodNegoci = new ProductoNegocio();
             listaProdutos = prodNegoci.listar();
             List<Producto> productosActivos = listaProdutos.Where(p => p.estado == 1).ToList();
 
@@ -83,10 +89,11 @@ namespace WebApplication1
             }
 
 
+           
 
 
- 
-           DOMINIO.DetalleVenta detVenta = new DOMINIO.DetalleVenta();
+
+            DOMINIO.DetalleVenta detVenta = new DOMINIO.DetalleVenta();
             
             int idDelDropdown = int.Parse(dropdonwListPoducto.Text);
 
@@ -95,6 +102,7 @@ namespace WebApplication1
             Producto productoSeleccionado = listaProdutos.Find(p => p.id == idDelDropdown);
 
 
+            
             detVenta.precio = productoSeleccionado.precioVenta;
             detVenta.nombreDeProducto = productoSeleccionado.nombre;
             detVenta.cantidadDeProductos = int.Parse (TextBoxCantidadProducto.Text);
@@ -203,5 +211,76 @@ namespace WebApplication1
 
 
         }
+
+        protected void ButtonTerminarVenta_Click(object sender, EventArgs e)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            string observacion = TextObservacion.Text;
+            DateTime fechaHoy = DateTime.Now;
+            int idVendedor = int.Parse(DropDownListVendedor.SelectedValue);
+            
+            int idCliente = int.Parse(Request.QueryString["id"]);
+            datos.setParameters("@idCliente",idCliente);
+            datos.setParameters("@fecha", fechaHoy);
+            datos.setParameters("@idVendedor", idVendedor);
+            datos.setParameters("@observacion", (object)observacion ?? DBNull.Value );
+
+            datos.setearQuery("INSERT INTO Ventas (idCliente, fecha, idVendedor, observacion) VALUES (@idCliente, @fecha, @idVendedor, @observacion)");
+
+            datos.ejecutarLectura();
+            datos.cerrarConexion();
+
+
+            VentaNegocio ventNegocio = new VentaNegocio();
+
+
+
+
+            List<DOMINIO.DetalleVenta> detalleVentaSession = new List<DOMINIO.DetalleVenta>();
+
+            detalleVentaSession = (List<DOMINIO.DetalleVenta>)Session["listaDetalleVenta"];
+
+            DOMINIO.DetalleVenta detVent = new DOMINIO.DetalleVenta();
+            
+            List<DOMINIO.Venta> listVenta = new List<DOMINIO.Venta>();
+            listVenta = ventNegocio.listarVentaSimple();
+
+            int cantidadVentas = listVenta.Count + 1;            
+            
+            int i = 0;
+            while (i < detalleVentaSession.Count)
+            {
+                detVent.idDelProducto = detalleVentaSession[i].idDelProducto;
+                detVent.cantidadDeProductos = detalleVentaSession[i].cantidadDeProductos;
+                detVent.precio = detalleVentaSession[i].precio;
+
+                datos.setParameters("@idVenta", cantidadVentas);
+                datos.setParameters("@idProducto", detVent.idDelProducto);
+                datos.setParameters("@cantidadDeProductos", detVent.cantidadDeProductos);
+                datos.setParameters("@precio", detVent.precio);
+
+
+                datos.setearQuery("INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio) VALUES (@idVenta, @idProducto, @cantidadDeProductos, @precio)");
+
+
+                datos.ejecutarLectura();
+                datos.cerrarConexion();
+
+            i++;
+
+            
+            }
+
+
+            detalleVentaSession.Clear();
+
+            LabelpedidoTerminado.Text= "PEDIDO EN PENDIENTES";
+            Session.Add("listaDetalleVenta", detalleVentaSession);
+
+        }
+
+
+
+        }
     }
-}

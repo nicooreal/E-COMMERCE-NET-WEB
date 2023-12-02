@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="nuevaVenta.aspx.cs" Inherits="WebApplication1.nuevaVenta" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 
 
-    <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">--%>
 
-
+        <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
 
@@ -17,11 +17,13 @@
 <br />
   </div>
 
-           <div >
-<label for="exampleFormControlTextarea1" class="form-label">observacion:</label>
-<asp:TextBox ID="txtObservacion" class="form-control custom-textbox"  runat="server"  />
+
+               <div>
+<label for="txtVendedor">Vendedor:</label>
+<asp:DropDownList ID="DropDownListVendedor"  class="form-control custom-textbox" runat="server"   />
+
 <br />
-            </div>
+   </div>
 
 
    <div>
@@ -70,9 +72,17 @@
     </b>
 </div>
 
+           <div >
+<label for="exampleFormControlTextarea1" class="form-label">observacion:</label>
+<asp:TextBox ID="TextObservacion" class="form-control custom-textbox"  runat="server"  />
+<br />
+            </div>
+
+            <asp:Button ID="ButtonTerminarVenta" runat="server" Text="ENVIAR" class="btn btn-outline-success" OnClick="ButtonTerminarVenta_Click" />
 
 
 
 
-
+            <asp:Label ID="LabelpedidoTerminado" runat="server"></asp:Label>
+           <br />
 </asp:Content>

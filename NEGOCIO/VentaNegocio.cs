@@ -10,7 +10,7 @@ namespace NEGOCIO
     public class VentaNegocio
     {
 
-
+        public List<Venta> listaVentasSimple = new List<Venta>();
         public List<Venta> listaVentas = new List<Venta>();
         public List<Venta> listarVenta()
         {
@@ -18,7 +18,7 @@ namespace NEGOCIO
             AccesoDatos datos = new AccesoDatos();
 
 
-            datos.setearQuery("\tSELECT V.idVenta, V.entregado as entregado, SUM(DetV.cantidad * DetV.precio) as totalVenta, SUM( DetV.cantidad) as cantidadProductos, C.nombreFantasia as nombreCliente,  V.fecha as fecha, V.idCliente as idCliente,  V.observacion as observacion, V.idVendedor as idVendedor, vend.nombre as nombreVendedor   FROM  Ventas V   INNER JOIN Vendedores vend ON vend.idVendedor = V.idVendedor  INNER JOIN Clientes C ON V.idCliente = C.idCliente  INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta, C.nombreFantasia, V.fecha, V.idCliente, V.observacion, V.idVendedor, vend.nombre, V.entregado   \r\n\r\n ");
+            datos.setearQuery("\tSELECT V.idVenta, V.entregado as entregado, SUM(DetV.cantidad * DetV.precio) as totalVenta, SUM( DetV.cantidad) as cantidadProductos, C.nombreFantasia as nombreCliente,  V.fecha as fecha, V.idCliente as idCliente,  V.observacion as observacion, V.idVendedor as idVendedor, vend.nombre as nombreVendedor   FROM  Ventas V   left JOIN Vendedores vend ON vend.idVendedor = V.idVendedor  INNER JOIN Clientes C ON V.idCliente = C.idCliente  INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta, C.nombreFantasia, V.fecha, V.idCliente, V.observacion, V.idVendedor, vend.nombre, V.entregado   \r\n\r\n ");
 
 
             datos.ejecutarLectura();
@@ -137,6 +137,33 @@ namespace NEGOCIO
 
 
 
+        public List<Venta> listarVentaSimple()
+        {
+            AccesoDatos datos = new AccesoDatos();
 
-    }
-}
+
+            datos.setearQuery("select idVenta from Ventas");
+
+            datos.ejecutarLectura();
+
+
+            while (datos.Lector.Read())
+            {
+
+                Venta vent = new Venta();
+                if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("idVenta")))
+                    vent.codigo = (int)datos.Lector["idVenta"];
+
+
+
+                listaVentasSimple.Add(vent);
+
+            }
+            return listaVentasSimple;
+
+        }
+
+
+    } 
+}  
+

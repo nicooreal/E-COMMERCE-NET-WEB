@@ -24,13 +24,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox txtClient;
 
         /// <summary>
-        /// Control txtObservacion.
+        /// Control DropDownListVendedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtObservacion;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListVendedor;
 
         /// <summary>
         /// Control dropdonwListPoducto.
@@ -85,5 +85,32 @@ namespace WebApplication1
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label labeltotalVenta;
+
+        /// <summary>
+        /// Control TextObservacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextObservacion;
+
+        /// <summary>
+        /// Control ButtonTerminarVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonTerminarVenta;
+
+        /// <summary>
+        /// Control LabelpedidoTerminado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelpedidoTerminado;
     }
 }
