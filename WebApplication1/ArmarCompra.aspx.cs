@@ -27,9 +27,9 @@ namespace WebApplication1
                 ProductoNegocio prodNegoci = new ProductoNegocio();
                 listaProdutos = prodNegoci.listar();
                 List<Producto> productosActivos = listaProdutos.Where(p => p.estado == 1).ToList();
+                List<Producto> productosDeProveedor = listaProdutos.Where(p => p.proveedor.idProveedor == idProveedor).ToList();
 
-
-                dropdonwListPoducto.DataSource = productosActivos;
+                dropdonwListPoducto.DataSource = productosDeProveedor;
                 dropdonwListPoducto.DataTextField = "nombre";
                 dropdonwListPoducto.DataValueField = "id";
                 dropdonwListPoducto.DataBind();
@@ -122,6 +122,42 @@ namespace WebApplication1
 
             
 
+        }
+
+        protected void GridViewNuevaCompra_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            var idEliminar = int.Parse(GridViewNuevaCompra.SelectedDataKey.Value.ToString());
+
+
+
+            List<DOMINIO.DetalleCompra> listaDetCompra = new List<DOMINIO.DetalleCompra>();
+
+            if (Session["listaDetalleCompra"] != null)
+            {
+                listaDetCompra = (List<DOMINIO.DetalleCompra>)Session["listaDetalleCompra"];
+
+
+                listaDetCompra.RemoveAll(det => det.idDelProducto == idEliminar);
+
+
+                //Session["listaDetalleVenta"] = listaDetVenta;
+
+
+                Session.Add("listaDetalleCompra", listaDetCompra);
+
+                GridViewNuevaCompra.DataSource = listaDetCompra;
+
+                GridViewNuevaCompra.DataBind();
+
+
+
+                decimal TotalDeVenta = listaDetCompra.Sum(det => det.totalPorProducto);
+                labeltotalVenta.Text = "TOTAL $" + TotalDeVenta.ToString();
+
+                labelSumarProducto.Text = "";
+
+            }
         }
     }
 }

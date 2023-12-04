@@ -36,7 +36,7 @@
 
 
 
-                    <asp:GridView ID="GridViewNuevaCompra" runat="server" AutoGenerateColumns="False" DataKeyNames ="idDelProducto"  CssClass="table table-bordered table-striped table-hover">
+                    <asp:GridView ID="GridViewNuevaCompra" runat="server" AutoGenerateColumns="False" DataKeyNames ="idDelProducto" OnSelectedIndexChanged="GridViewNuevaCompra_SelectedIndexChanged"  CssClass="table table-bordered table-striped table-hover">
                 <Columns>
         <asp:BoundField DataField="idDelProducto" HeaderText="Codigo de producto" />
         <asp:BoundField DataField="nombreDeProducto" HeaderText="Nombre" ReadOnly ="true" />
