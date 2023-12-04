@@ -184,7 +184,7 @@ namespace WebApplication1
             if (productoSeleccionado != null)
             {
                 lblPrecio.Text = "PRECIO POR UNIDAD $" + productoSeleccionado.precioVenta.ToString();
-                LabelStock.Text = "STOCK ACTUAL" + productoSeleccionado.stockActual.ToString() + " UNIDADES";
+                LabelStock.Text = "STOCK ACTUAL " + productoSeleccionado.stockActual.ToString() + " UNIDADES";
             
             }
             else
@@ -304,15 +304,34 @@ namespace WebApplication1
 
 
                 }
+                 i = 0;
+                while (i < detalleVentaSession.Count)
+                {
+                    detVent.idDelProducto = detalleVentaSession[i].idDelProducto;
+                    detVent.cantidadDeProductos = detalleVentaSession[i].cantidadDeProductos;
+
+   
+                    //datos.setParameters("@idProducto", detVent.idDelProducto);
+                    //datos.setParameters("@cantidadDeProductos", detVent.cantidadDeProductos);
 
 
-               
-                
-                
-                
-                
-                
-                
+                    datos.setearQuery("update Productos set stockActual = stockActual - @cantidadDeProductos  where idProducto = @idProducto");
+
+
+                    datos.ejecutarLectura();
+                    datos.cerrarConexion();
+
+                    i++;
+
+
+                }
+
+
+
+
+
+
+
                 detalleVentaSession.Clear();
 
                 GridViewNuevaVenta.DataSource = detalleVentaSession;
