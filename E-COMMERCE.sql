@@ -126,7 +126,7 @@ CREATE TABLE Vendedores (
 
 /*pongo estado en donde faltaba*/
 alter table Ventas
-add entregado bit not null  check(entregado = 1 or entregado = 0) default  0
+add entregado varchar(50) not null   default 'PENDIENTE'
 
 alter table Compras
 add entregado int not null  check(entregado = 1 or entregado = 0) default  0
@@ -139,18 +139,19 @@ alter table Proveedores
 add estado int not null  check(estado = 1 or estado = 0) default  1
 
 
-; -- Reemplaza 'nombre_restriccion' con el nombre de tu restricción CHECK
+
+SELECT * FROM VENTAS
+SELECT * FROM Detalles_Venta
 
 
 
-
-
+select * from Ventas
 
 
 update Ventas set entregado = 0 where idVenta = @id
 
 
-select * from usuarios
+select idVenta from Ventas
 Select Id, usuario, pass, tipouser from Usuarios
 DELETE FROM USUARIOS
 

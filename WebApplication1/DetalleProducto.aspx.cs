@@ -133,7 +133,22 @@ namespace WebApplication1
             try
             {
 
-             AccesoDatos datos = new AccesoDatos();
+
+                if (!string.IsNullOrEmpty(txtNombre.Text)
+                    && !string.IsNullOrEmpty(txtPrecioCompra.Text)
+                    && !string.IsNullOrEmpty(txtPrecioVenta.Text)
+                    && !string.IsNullOrEmpty(txtStockActual.Text)
+                    && !string.IsNullOrEmpty(txtStockMinimo.Text))
+                {
+                    // Aquí se ejecutará el código si todos los TextBox tienen valores
+                
+
+
+
+
+
+
+                AccesoDatos datos = new AccesoDatos();
              int idEditar = int.Parse(Request.QueryString["id"]);
 
 
@@ -184,13 +199,21 @@ namespace WebApplication1
                 datos.cerrarConexion();
             
 
+                } 
+                else
+                {
+
+                    LabelConfirmacion.ForeColor.ToArgb();
+                    LabelConfirmacion.Text = "HAY CAMPOS OBLIGATORIOS";
+
+                }
             }
             catch (Exception ex)
             {
 
                
-                    LabelConfirmacion.ForeColor.ToArgb();
-                    LabelConfirmacion.Text = "HAY CAMPOS OBLIGATORIOS";
+                    //LabelConfirmacion.ForeColor.ToArgb();
+                    //LabelConfirmacion.Text = "HAY CAMPOS OBLIGATORIOS";
 
                   
                 

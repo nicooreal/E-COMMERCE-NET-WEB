@@ -31,6 +31,8 @@
 <asp:DropDownList ID="dropdonwListPoducto"  class="form-control custom-textbox" runat="server" OnSelectedIndexChanged="dropdonwListPoducto_SelectedIndexChanged" autopostback="true"  />
        <asp:Label ID="lblPrecio" runat="server"></asp:Label>
 <br />
+  <asp:Label ID="LabelStock" runat="server"></asp:Label>
+   <br />    
    </div>
    
         <div>
@@ -41,18 +43,20 @@
    
    </div>
 
-
+            <div>
         <asp:Button ID="ButtonSumarProducto" runat="server" Text="AGREGAR"  class="btn btn-primary" OnClick="ButtonSumarProducto_Click"/>
+                <asp:Label runat="server" ID="labelSumarProducto"   BackColor="Red"></asp:Label>
+            </div>
 
 
 
                     <asp:GridView ID="GridViewNuevaVenta" runat="server" AutoGenerateColumns="False" DataKeyNames ="idDelProducto" OnSelectedIndexChanged="GridViewNuevaVenta_SelectedIndexChanged" CssClass="table table-bordered table-striped table-hover">
                 <Columns>
-        <asp:BoundField DataField="idDelProducto" HeaderText="Cantidad" />
+        <asp:BoundField DataField="idDelProducto" HeaderText="Codigo de producto" />
         <asp:BoundField DataField="nombreDeProducto" HeaderText="Nombre" ReadOnly ="true" />
         <asp:BoundField DataField="cantidadDeProductos" HeaderText="Cantidad" />
-        <asp:BoundField DataField="precio" HeaderText="precio" />
-        <asp:BoundField DataField="totalPorProducto" HeaderText="total de producto" />  
+        <asp:BoundField DataField="precio" HeaderText="Precio" />
+        <asp:BoundField DataField="totalPorProducto" HeaderText="Total de producto" />  
                     
                     <asp:CommandField ShowSelectButton ="true" SelectText ="ELIMINAR" />
 

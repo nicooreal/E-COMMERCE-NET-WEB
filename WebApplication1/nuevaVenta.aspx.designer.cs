@@ -51,6 +51,15 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.Label lblPrecio;
 
         /// <summary>
+        /// Control LabelStock.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelStock;
+
+        /// <summary>
         /// Control TextBoxCantidadProducto.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace WebApplication1
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonSumarProducto;
+
+        /// <summary>
+        /// Control labelSumarProducto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelSumarProducto;
 
         /// <summary>
         /// Control GridViewNuevaVenta.
