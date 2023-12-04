@@ -11,6 +11,9 @@ namespace WebApplication1
 {
     public partial class DetalleVenta : System.Web.UI.Page
     {
+
+        public List<DOMINIO.DetalleVenta> listaDetalleVentaDeID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,7 +24,7 @@ namespace WebApplication1
             DetalleVentaNegocio detVenta = new DetalleVentaNegocio();
              List<DOMINIO.DetalleVenta> listaDetalleVenta =  detVenta.listarDetalleVenta();
 
-            List<DOMINIO.DetalleVenta> listaDetalleVentaDeID = listaDetalleVenta.Where(DetVenta => DetVenta.codigo == idSeleccionado).ToList();
+             listaDetalleVentaDeID = listaDetalleVenta.Where(DetVenta => DetVenta.codigo == idSeleccionado).ToList();
 
 
             decimal TotalDeVenta = listaDetalleVentaDeID.Sum(det => det.totalPorProducto);
@@ -64,6 +67,8 @@ namespace WebApplication1
 
         protected void ButtonEliminarVenta_Click(object sender, EventArgs e)
         {
+            DetalleVentaNegocio detVentNegocio = new DetalleVentaNegocio();
+
             int idSeleccionado = (int)Session["idVenta"];
             VentaNegocio ventaNegocio = new VentaNegocio();
             ventaNegocio.eliminarVenta(idSeleccionado);
@@ -75,7 +80,25 @@ namespace WebApplication1
 
             ButtonAnulaEntrega.Visible = false;
             ButtonEntregado.Visible = false;
+
+           
             
+            int i = 0;
+            
+            
+            
+            while ( listaDetalleVentaDeID.Count > i)
+            {
+
+            detVentNegocio.sumarStockConSP(listaDetalleVentaDeID[i]);
+
+                i++;
+            }
+           
+
+        
+        
+        
         }
 
         protected void ButtonVolverAVentas_Click(object sender, EventArgs e)

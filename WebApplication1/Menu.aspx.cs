@@ -22,6 +22,9 @@ namespace WebApplication1
 
         protected void btnVentas_Click(object sender, EventArgs e)
         {
+
+
+            Session.Add("listaDetalleVenta", null);
             Response.Redirect("Venta.aspx");
         }
 

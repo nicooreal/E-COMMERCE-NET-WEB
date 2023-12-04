@@ -20,7 +20,7 @@ namespace NEGOCIO
 
             List<DetalleVenta> listaDetalleVentas = new List<DetalleVenta>();
 
-            datos.setearQuery("select DetV.cantidad as cantidadPRoductos, DetV.precio, (DetV.precio * DetV.cantidad) as totalPorProducto, P.nombre as nombreProducto,  V.idVenta as idVenta from Ventas V  inner join Vendedores vend on vend.idVendedor = V.idVendedor inner join Detalles_Venta DetV on DetV.idVenta = V.idVenta inner join Productos P on P.idProducto = DetV.idProducto");
+            datos.setearQuery("select DetV.cantidad as cantidadPRoductos, P.idProducto as idProducto ,DetV.precio, (DetV.precio * DetV.cantidad) as totalPorProducto, P.nombre as nombreProducto,  V.idVenta as idVenta from Ventas V  inner join Vendedores vend on vend.idVendedor = V.idVendedor inner join Detalles_Venta DetV on DetV.idVenta = V.idVenta inner join Productos P on P.idProducto = DetV.idProducto");
             datos.ejecutarLectura();
             while (datos.Lector.Read())
             {
@@ -39,7 +39,8 @@ namespace NEGOCIO
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("precio")))
                     vent.precio = (decimal)datos.Lector["precio"];
 
-
+                if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("idProducto")))
+                    vent.idDelProducto = (int)datos.Lector["idProducto"];
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("totalPorProducto")))
                     vent.totalPorProducto = (decimal)datos.Lector["totalPorProducto"];
@@ -103,10 +104,22 @@ namespace NEGOCIO
             datos.ejecutarAccion();
             datos.cerrarConexion();
 
-            }           
+            }
 
 
-        
+        public void sumarStockConSP(DetalleVenta detVent)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.setearProcedimiento("SP_sumarStock");
+
+
+            datos.setParameters("@cantidadDeProductos", detVent.cantidadDeProductos);
+            datos.setParameters("@idProducto", detVent.idDelProducto);
+
+            datos.ejecutarAccion();
+            datos.cerrarConexion();
+
+        }
 
     }
 
