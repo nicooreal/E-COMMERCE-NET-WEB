@@ -55,8 +55,8 @@
                 <Columns>
         <asp:BoundField DataField="Id" HeaderText="ID Producto" ReadOnly ="true" />
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-        <asp:BoundField DataField="PrecioCompra" HeaderText="Precio de Compra" />
-        <asp:BoundField DataField="PrecioVenta" HeaderText="Precio de Venta" />
+        <asp:BoundField DataField="PrecioCompra" HeaderText="Precio de Compra (en pesos)" />
+        <asp:BoundField DataField="PrecioVenta" HeaderText="Precio de Venta (en pesos)" />
         <asp:BoundField DataField="IdMarca.nomMarca" HeaderText="Marca" />
         <asp:BoundField DataField="IdCategoria.nomCategoria" HeaderText="Categoria" />
         <asp:BoundField DataField="StockActual" HeaderText="Stock Actual" />

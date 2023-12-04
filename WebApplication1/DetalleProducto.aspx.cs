@@ -128,7 +128,7 @@ namespace WebApplication1
 
         protected void ButtonEditar_Click(object sender, EventArgs e)
         {
-
+            decimal valor;
 
             try
             {
@@ -138,9 +138,11 @@ namespace WebApplication1
                     && !string.IsNullOrEmpty(txtPrecioCompra.Text)
                     && !string.IsNullOrEmpty(txtPrecioVenta.Text)
                     && !string.IsNullOrEmpty(txtStockActual.Text)
-                    && !string.IsNullOrEmpty(txtStockMinimo.Text))
+                    && !string.IsNullOrEmpty(txtStockMinimo.Text)
+                    && decimal.TryParse(txtPrecioVenta.Text, out valor)
+                    && decimal.TryParse(txtPrecioCompra.Text, out valor))
                 {
-                    // Aquí se ejecutará el código si todos los TextBox tienen valores
+                 
                 
 
 
@@ -204,8 +206,10 @@ namespace WebApplication1
                 {
 
                     LabelConfirmacion.ForeColor.ToArgb();
-                    LabelConfirmacion.Text = "HAY CAMPOS OBLIGATORIOS";
-
+                    LabelConfirmacion.Text = "INGRESE CORRECTAMENTE EN LOS CAMPOS";
+                    
+                
+                
                 }
             }
             catch (Exception ex)

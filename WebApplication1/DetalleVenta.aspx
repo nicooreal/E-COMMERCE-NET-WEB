@@ -56,10 +56,10 @@
                 <Columns>
 <%--        <asp:BoundField DataField="codigo" HeaderText="Codigo de venta" ReadOnly ="true" />--%>
         
-         <asp:BoundField DataField="nombreDeProducto" HeaderText="Tombre del producto" />
+         <asp:BoundField DataField="nombreDeProducto" HeaderText="Nombre del producto" />
         <asp:BoundField DataField="cantidadDeProductos" HeaderText="Cantidad de productos" />             
-        <asp:BoundField DataField="precio" HeaderText="Precio por unidad" />
-        <asp:BoundField DataField="totalPorProducto" HeaderText="Total por producto producto" />
+        <asp:BoundField DataField="precio" HeaderText="Precio por unidad (en pesos)" />
+        <asp:BoundField DataField="totalPorProducto" HeaderText="Total por producto (en pesos)" />
 
 
 

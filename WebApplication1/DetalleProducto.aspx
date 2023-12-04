@@ -52,7 +52,7 @@
  </div>
 
    <div class="mb-3">
-<label for="txtPrecioCompra">Precio de Compra:</label>
+<label for="txtPrecioCompra">Precio de Compra(en pesos):</label>
 <asp:TextBox ID="txtPrecioCompra"  class="form-control custom-textbox" runat="server" />
 <br />
   </div>
@@ -66,8 +66,8 @@
     </div>
     <div class="col">
 
-<label for="txtPrecioVenta">Precio de Venta:</label>
-<asp:TextBox ID="txtPrecioVenta"  class="form-control custom-textbox" runat="server" />
+<label for="txtPrecioVenta">Precio de Venta(en pesos):</label>
+<asp:TextBox ID="txtPrecioVenta"  class="form-control custom-textbox" runat="server"  />
 <br />
 
 <%--<label for="txtIdCategoria">ID de Categoría:</label>
