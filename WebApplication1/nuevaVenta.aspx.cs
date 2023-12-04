@@ -111,8 +111,20 @@ namespace WebApplication1
 
             if (!string.IsNullOrEmpty(TextBoxCantidadProducto.Text))
             {
+                
+                if (productoSeleccionado.stockActual <  int.Parse(TextBoxCantidadProducto.Text) ) 
+                {
+                    labelSumarProducto.Text = "NO SE PUEDE SUMAR ESA CANTIDAD, EL MAXIMO ES " + productoSeleccionado.stockActual;
+                return;
+                } 
+                else
+                {
+
                 detVenta.cantidadDeProductos = int.Parse(TextBoxCantidadProducto.Text);
                 labelSumarProducto.Text = "";
+
+                }
+                
             }
             else
             {
