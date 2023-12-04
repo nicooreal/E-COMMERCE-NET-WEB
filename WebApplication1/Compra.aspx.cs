@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NEGOCIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,17 +10,22 @@ namespace WebApplication1
 {
     public partial class Compra : System.Web.UI.Page
     {
+
+   
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+
+
+
+
+
         }
 
-
-
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void ButtonNuevaComprass_Click(object sender, EventArgs e)
         {
             Response.Redirect("DetalleCompra.aspx");
         }
-
     }
 }

@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArmarCompra.aspx" />
     <Content Include="Bienvenida.aspx" />
     <Content Include="Cliente.aspx" />
     <Content Include="Compra.aspx" />
@@ -91,6 +92,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArmarCompra.aspx.cs">
+      <DependentUpon>ArmarCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArmarCompra.aspx.designer.cs">
+      <DependentUpon>ArmarCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Bienvenida.aspx.cs">
       <DependentUpon>Bienvenida.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
