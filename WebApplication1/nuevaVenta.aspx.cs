@@ -140,8 +140,23 @@ namespace WebApplication1
             detVenta.totalPorProducto = totalPorProducto;
 
 
+            int i = 0;
+         
+            
+            
+            while (listaDetalleVenta.Count > i)
+            {
+                if (listaDetalleVenta[i].idDelProducto == productoSeleccionado.id)
+                {
+                    labelSumarProducto.Text = "YA SELECCIONO ESE PRODUCTO";
+                    return;
+                }
 
 
+
+
+                i++;
+            }
 
 
 
@@ -228,6 +243,7 @@ namespace WebApplication1
                 decimal TotalDeVenta = listaDetVenta.Sum(det => det.totalPorProducto);
                 labeltotalVenta.Text = "TOTAL $" + TotalDeVenta.ToString();
 
+                labelSumarProducto.Text = "";
             }
 
 

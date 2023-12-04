@@ -45,7 +45,7 @@
 
             <div>
         <asp:Button ID="ButtonSumarProducto" runat="server" Text="AGREGAR"  class="btn btn-primary" OnClick="ButtonSumarProducto_Click"/>
-                <asp:Label runat="server" ID="labelSumarProducto"   BackColor="Red"></asp:Label>
+                <asp:Label runat="server" ID="labelSumarProducto"   BackColor="#ff6666"></asp:Label>
             </div>
 
 
