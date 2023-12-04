@@ -36,7 +36,7 @@
    </div>
    
         <div>
-<label for="txtProducto">cantidad</label>
+<label for="txtProducto">Cantidad</label>
 <asp:TextBox ID="TextBoxCantidadProducto"  class="form-control custom-textbox" type="number" runat="server" />
 <br />
    

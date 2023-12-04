@@ -22,6 +22,8 @@ namespace WebApplication1
             listaVendedor = vendNegocio.listar();
 
 
+
+
             GridViewVendedor.DataSource = listaVendedor;
 
             GridViewVendedor.DataBind();

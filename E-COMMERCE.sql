@@ -140,13 +140,6 @@ add estado int not null  check(estado = 1 or estado = 0) default  1
 
 
 
-SELECT * FROM VENTAS
-SELECT * FROM Detalles_Venta
-
-
-
-select * from Ventas
-
 
 update Ventas set entregado = 0 where idVenta = @id
 
@@ -165,5 +158,28 @@ INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta,
 
 
 
+insert into Marcas(nombre) values ('BONAFIDE')
+
+delete from Ventas
+select * from Vendedores
+select * from Detalles_Venta
+select * from Productos
+
+DBCC CHECKIDENT ('ventas', RESEED,0)  
+
+-- Supongamos que ya existe una venta con idVenta = 1 y un producto con idProducto = 101
+INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio)
+VALUES (53,21 , 3, 15.00); -- Por ejemplo, se vendieron 3 productos del Producto con idProducto = 101 en la Venta con idVenta = 1 por $15.00 cada uno
 
 
+update Productos set stockActual = stockActual + 3 where idCategoria = 1
+
+select * from Usuarios
+update Vendedores set nombre = 'MATEO' where idVendedor = 4
+
+delete from Vendedores where id = 1
+TRUNCATE TABLE Ventas
+
+
+INSERT INTO Vendedores (nombre, direccion, telefono, correo, estado)
+VALUES ('Mateo', 'Dirección de Mateo', '123456789', 'mateo@example.com', 1);

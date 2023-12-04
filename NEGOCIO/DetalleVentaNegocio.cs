@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace NEGOCIO
         public List<DetalleVenta> listarDetalleVenta()
         {
 
-            
+
 
             AccesoDatos datos = new AccesoDatos();
 
@@ -31,14 +32,14 @@ namespace NEGOCIO
 
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("cantidadPRoductos")))
-                    vent.cantidadDeProductos= (int)datos.Lector["cantidadPRoductos"];
+                    vent.cantidadDeProductos = (int)datos.Lector["cantidadPRoductos"];
 
-                
+
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("precio")))
                     vent.precio = (decimal)datos.Lector["precio"];
-                
-                
+
+
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("totalPorProducto")))
                     vent.totalPorProducto = (decimal)datos.Lector["totalPorProducto"];
@@ -50,17 +51,69 @@ namespace NEGOCIO
 
                 listaDetalleVentas.Add(vent);
 
-            
-            
+
+
             }
-            
-            
+
+
             datos.cerrarConexion();
             return listaDetalleVentas;
 
 
 
 
-        } 
+        }
+
+
+        public void agregarConSP(DetalleVenta detVent)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("SP_detalleventa");
+
+
+                datos.setParameters("@precio", detVent.precio);
+                datos.setParameters("@cantidadDeProductos", detVent.cantidadDeProductos);
+                datos.setParameters("@idProducto", detVent.idDelProducto);
+                datos.setParameters("@idVenta", detVent.codigo);
+
+                datos.ejecutarAccion();
+                datos.cerrarConexion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+            public void restarStockConSP(DetalleVenta detVent)
+            {
+            AccesoDatos datos = new AccesoDatos();
+            datos.setearProcedimiento("SP_restarStock");
+
+
+            datos.setParameters("@cantidadDeProductos", detVent.cantidadDeProductos);
+            datos.setParameters("@idProducto", detVent.idDelProducto);
+
+            datos.ejecutarAccion();
+            datos.cerrarConexion();
+
+            }           
+
+
+        
+
     }
+
+        
 }
+    
+    
+    
+    
+    

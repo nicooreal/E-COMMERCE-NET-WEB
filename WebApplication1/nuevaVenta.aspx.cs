@@ -3,6 +3,7 @@ using NEGOCIO;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -35,6 +36,16 @@ namespace WebApplication1
                 VendedorNegocio vendedorNegocio = new VendedorNegocio();
                 List<DOMINIO.Vendedor> listaVendedor;
                 listaVendedor = vendedorNegocio.listar();
+
+
+
+                //        if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN && ((DOMINIO.Usuario)Session["usuario"]).Id == 13)
+                //{
+
+                //}
+
+
+
 
                 DropDownListVendedor.DataSource = listaVendedor;
                 DropDownListVendedor.DataTextField = "nombre";
@@ -298,44 +309,72 @@ namespace WebApplication1
                 int cantidadVentas = listVenta.Count;
 
                 int i = 0;
-                while (i < detalleVentaSession.Count)
+
+
+
+                DetalleVentaNegocio detVentNEgocio = new DetalleVentaNegocio();
+
+
+                try
                 {
-                    detVent.idDelProducto = detalleVentaSession[i].idDelProducto;
-                    detVent.cantidadDeProductos = detalleVentaSession[i].cantidadDeProductos;
-                    detVent.precio = detalleVentaSession[i].precio;
 
-                    datos.setParameters("@idVenta", cantidadVentas);
-                    datos.setParameters("@idProducto", detVent.idDelProducto);
-                    datos.setParameters("@cantidadDeProductos", detVent.cantidadDeProductos);
-                    datos.setParameters("@precio", detVent.precio);
+                    while (i < detalleVentaSession.Count)
+                    {
+                        detVent.idDelProducto = detalleVentaSession[i].idDelProducto;
+                        detVent.cantidadDeProductos = detalleVentaSession[i].cantidadDeProductos;
+                        detVent.precio = detalleVentaSession[i].precio;
+                        detVent.codigo = cantidadVentas;
+
+                        //datos.setParameters("@cantidadDeProductos", detVent.cantidadDeProductos);
+                        //datos.setParameters("@precio", detVent.precio);
+                        //datos.setParameters("@idProducto", detVent.idDelProducto);
+                        //datos.setParameters("@idVenta", detVent.codigo);
+
+                
+                        //datos.setearQuery("INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio) VALUES (@idVenta, @idProducto, @cantidadDeProductos, @precio)");
 
 
-                    datos.setearQuery("INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio) VALUES (@idVenta, @idProducto, @cantidadDeProductos, @precio)");
+
+                        //datos.ejecutarLectura();
+                        //datos.cerrarConexion();
+                        detVentNEgocio.agregarConSP(detVent);
 
 
-                    datos.ejecutarLectura();
-                    datos.cerrarConexion();
+                        i++;
 
-                    i++;
+
+                    }
+
 
 
                 }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+
+                       
+
+
+                }
+
                  i = 0;
                 while (i < detalleVentaSession.Count)
                 {
                     detVent.idDelProducto = detalleVentaSession[i].idDelProducto;
                     detVent.cantidadDeProductos = detalleVentaSession[i].cantidadDeProductos;
 
-   
+
                     //datos.setParameters("@idProducto", detVent.idDelProducto);
                     //datos.setParameters("@cantidadDeProductos", detVent.cantidadDeProductos);
 
 
-                    datos.setearQuery("update Productos set stockActual = stockActual - @cantidadDeProductos  where idProducto = @idProducto");
+                    detVentNEgocio.restarStockConSP(detVent);
 
 
-                    datos.ejecutarLectura();
-                    datos.cerrarConexion();
 
                     i++;
 
@@ -364,7 +403,7 @@ namespace WebApplication1
                 labeltotalVenta.Text = "EL PEDIDO ESTA VACIO";
             }
 
-
+            labelSumarProducto.Text = "";
         }
 
     }
