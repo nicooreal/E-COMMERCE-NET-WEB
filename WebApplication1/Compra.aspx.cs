@@ -14,6 +14,14 @@ namespace WebApplication1
    
         protected void Page_Load(object sender, EventArgs e)
         {
+            CompraNegocio compraNegocio = new CompraNegocio();
+            //listaVenta = ventaNegocio.listarVenta();
+
+            List<DOMINIO.Compra> listaCompraNOeliminada = compraNegocio.listar().Where(p => p.entregado != "ELIMINADO").ToList();
+
+
+            GridViewCompras.DataSource = listaCompraNOeliminada;
+            GridViewCompras.DataBind();
 
 
 
