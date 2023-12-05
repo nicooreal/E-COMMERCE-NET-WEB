@@ -69,7 +69,7 @@ namespace WebApplication1
 
 
 
-            detCompra.precio = productoSeleccionado.precioVenta;
+            detCompra.precio = productoSeleccionado.precioCompra;
             detCompra.nombreDeProducto = productoSeleccionado.nombre;
             detCompra.cantidadDeProductos = int.Parse(TextBoxCantidadProducto.Text);
 
@@ -308,8 +308,8 @@ namespace WebApplication1
 
             if (productoSeleccionado != null)
             {
-                lblPrecio.Text = "PRECIO POR UNIDAD $" + productoSeleccionado.precioVenta.ToString();
-                LabelStock.Text = "STOCK ACTUAL " + productoSeleccionado.stockActual.ToString() + " UNIDADES";
+                lblPrecio.Text = "PRECIO DE COMPRA POR UNIDAD $" + productoSeleccionado.precioCompra.ToString();
+                LabelStock.Text = " STOCK ACTUAL " + productoSeleccionado.stockActual.ToString() + " UNIDADES";
 
             }
             else

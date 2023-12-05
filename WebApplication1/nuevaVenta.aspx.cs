@@ -116,7 +116,7 @@ namespace WebApplication1
 
 
 
-            detVenta.precio = productoSeleccionado.precioVenta;
+            detVenta.precio = productoSeleccionado.precioCompra;             // PRECIO DE COMPRAAAAAAAAAAAAAAAA != DE VENTAAA
             detVenta.nombreDeProducto = productoSeleccionado.nombre;
 
 
