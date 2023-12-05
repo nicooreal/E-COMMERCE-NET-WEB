@@ -15,8 +15,10 @@
 
    <div>
 <label for="txtProducto">Producto:</label>
-<asp:DropDownList ID="dropdonwListPoducto"  class="form-control custom-textbox" runat="server"  autopostback="true"  />
+<asp:DropDownList ID="dropdonwListPoducto"  class="form-control custom-textbox" runat="server"  OnSelectedIndexChanged="dropdonwListPoducto_SelectedIndexChanged1" autopostback="true"  />
        <asp:Label ID="lblPrecio" runat="server"></asp:Label>
+       <asp:Label ID="LabelStock" runat="server"></asp:Label>
+
 <br />
 
    </div>
@@ -68,7 +70,7 @@
 <br />
             </div>
 
-            <asp:Button ID="ButtonTerminarVenta" runat="server" Text="ENVIAR" class="btn btn-outline-success"  />
+            <asp:Button ID="ButtonTerminarVenta" runat="server" Text="ENVIAR" class="btn btn-outline-success" OnClick="ButtonTerminarVenta_Click"  />
 
 
 

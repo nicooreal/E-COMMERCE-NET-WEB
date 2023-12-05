@@ -29,7 +29,7 @@ CREATE TABLE Categorias (
 )
 
 
-
+select * from Productos
 
 CREATE TABLE Productos (
   idProducto INT PRIMARY KEY IDENTITY (1, 1),
@@ -84,8 +84,6 @@ CREATE TABLE Detalles_Venta ( --Productos Vendidos---
   FOREIGN KEY (idVenta) REFERENCES Ventas(idVenta),
   FOREIGN KEY (idProducto) REFERENCES Productos(idProducto)
 )
-
-
 
 
 
@@ -160,26 +158,38 @@ INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta,
 
 insert into Marcas(nombre) values ('BONAFIDE')
 
-delete from Ventas
-select * from Vendedores
+
+select * from Ventas
 select * from Detalles_Venta
 select * from Productos
 
 DBCC CHECKIDENT ('ventas', RESEED,0)  
 
--- Supongamos que ya existe una venta con idVenta = 1 y un producto con idProducto = 101
+
+declare @prueba int
+set @prueba = 1
+
 INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio)
-VALUES (53,21 , 3, 15.00); -- Por ejemplo, se vendieron 3 productos del Producto con idProducto = 101 en la Venta con idVenta = 1 por $15.00 cada uno
+VALUES (20, 23, 5, 25.00); 
 
 
-update Productos set stockActual = stockActual + 3 where idCategoria = 1
+create procedure SP_detalleventa
+@idVenta int,
+@idProducto int,
+@cantidadDeProductos int,
+@precio int
 
-select * from Usuarios
-update Vendedores set nombre = 'MATEO' where idVendedor = 4
+as
+INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio)
+VALUES (@idVenta, @idProducto, @cantidadDeProductos, @precio); 
 
-delete from Vendedores where id = 1
-TRUNCATE TABLE Ventas
+exec SP_detalleventa 50,23,2,5
 
 
-INSERT INTO Vendedores (nombre, direccion, telefono, correo, estado)
-VALUES ('Mateo', 'Dirección de Mateo', '123456789', 'mateo@example.com', 1);
+CREATE PROCEDURE SP_sumarStock
+@cantidadDeProductos int,
+@idProducto int
+as
+update Productos set stockActual = stockActual + @cantidadDeProductos  where idProducto = @idProducto
+
+select * from Productos

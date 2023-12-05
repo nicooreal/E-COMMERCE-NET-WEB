@@ -159,5 +159,165 @@ namespace WebApplication1
 
             }
         }
+
+        protected void ButtonTerminarVenta_Click(object sender, EventArgs e)
+        {
+
+
+                if (GridViewNuevaCompra.Rows.Count > 0)
+                {
+
+
+
+
+                    AccesoDatos datos = new AccesoDatos();
+
+                    string observacion = TextObservacion.Text;
+                    DateTime fechaHoy = DateTime.Now;
+                    
+
+                    int idProveedor = int.Parse(Request.QueryString["id"]);
+                    datos.setParameters("@idProveedor", idProveedor);
+                    datos.setParameters("@fecha", fechaHoy);
+                    datos.setParameters("@observacion", (object)observacion ?? DBNull.Value);
+                    datos.setParameters("@estado","PENDIENTE");
+                datos.setParameters("metodoPago", "E");
+
+
+                datos.setearQuery("INSERT INTO Compras (idProveedor, fecha,metodoPago ,observacion, estado) VALUES (@idProveedor, @fecha,@metodoPago ,@observacion, @estado)");
+
+                    datos.ejecutarLectura();
+                    datos.cerrarConexion();
+
+
+                    CompraNegocio compraNegocio = new CompraNegocio();
+
+
+
+
+                    List<DOMINIO.DetalleCompra> detalleCompraSession = new List<DOMINIO.DetalleCompra>();
+
+                    detalleCompraSession = (List<DOMINIO.DetalleCompra>)Session["listaDetalleCompra"];
+
+                    DOMINIO.DetalleCompra detCompra = new DOMINIO.DetalleCompra();
+
+                    List<DOMINIO.Compra> listCompra = new List<DOMINIO.Compra>();
+                    listCompra = compraNegocio.listarCompraSimple();
+
+                    int cantidadCompras = listCompra.Count;
+
+                    int i = 0;
+
+
+
+                    DetalleCompraNegocio detCompraNegocio = new DetalleCompraNegocio();
+
+
+                    try
+                    {
+
+                        while (i < detalleCompraSession.Count)
+                        {
+                        detCompra.idDelProducto = detalleCompraSession[i].idDelProducto;
+                        detCompra.cantidadDeProductos = detalleCompraSession[i].cantidadDeProductos;
+                        detCompra.precio = detalleCompraSession[i].precio;
+                        detCompra.codigo = cantidadCompras;
+
+                            //datos.setParameters("@cantidadDeProductos", detVent.cantidadDeProductos);
+                            //datos.setParameters("@precio", detVent.precio);
+                            //datos.setParameters("@idProducto", detVent.idDelProducto);
+                            //datos.setParameters("@idVenta", detVent.codigo);
+
+
+                            //datos.setearQuery("INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio) VALUES (@idVenta, @idProducto, @cantidadDeProductos, @precio)");
+
+
+
+                            //datos.ejecutarLectura();
+                            //datos.cerrarConexion();
+                            detCompraNegocio.agregarConSP(detCompra);
+
+
+                            i++;
+
+
+                        }
+
+
+
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                    finally
+                    {
+
+
+
+
+                    }
+
+                    i = 0;
+
+
+
+
+
+
+
+
+                    detalleCompraSession.Clear();
+
+                 GridViewNuevaCompra.DataSource = detalleCompraSession;
+              
+
+                
+                 GridViewNuevaCompra.DataBind(); 
+
+
+
+                    LabelpedidoTerminado.Text = "COMPRA EN PENDIENTES";
+                    Session.Add("listaDetalleCompra", detalleCompraSession);
+
+                }
+                else
+                {
+                    labeltotalVenta.Text = "EL PEDIDO ESTA VACIO";
+                }
+
+                labelSumarProducto.Text = "";
+            }
+
+
+
+
+
+      
+
+        protected void dropdonwListPoducto_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            int codigoProductoSeleccionado = int.Parse(dropdonwListPoducto.SelectedValue);
+
+            ProductoNegocio prodNegoci = new ProductoNegocio();
+            List<DOMINIO.Producto> listaProdutos = prodNegoci.listar();
+
+            DOMINIO.Producto productoSeleccionado = listaProdutos.FirstOrDefault(p => p.id == codigoProductoSeleccionado);
+
+
+            if (productoSeleccionado != null)
+            {
+                lblPrecio.Text = "PRECIO POR UNIDAD $" + productoSeleccionado.precioVenta.ToString();
+                LabelStock.Text = "STOCK ACTUAL " + productoSeleccionado.stockActual.ToString() + " UNIDADES";
+
+            }
+            else
+            {
+                lblPrecio.Text = "Precio no disponible";
+            }
+
+
+        }
     }
-}
+    }

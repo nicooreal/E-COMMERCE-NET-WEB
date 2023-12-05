@@ -10,7 +10,7 @@ namespace NEGOCIO
 {
     public class CompraNegocio
     {
-
+        public List<Compra> listaCompraSimple = new List<Compra>();
 
         public List<Compra> listar()
         {
@@ -78,11 +78,35 @@ namespace NEGOCIO
 
 
 
+        public List<Compra> listarCompraSimple()
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+
+            datos.setearQuery("select idCompra from Compras");
+
+            datos.ejecutarLectura();
+
+
+            while (datos.Lector.Read())
+            {
+
+                Compra compra = new Compra();
+                if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("idCompra")))
+                    compra.id = (int)datos.Lector["idCompra"];
+
+
+
+                listaCompraSimple.Add(compra);
+
+            }
+            return listaCompraSimple;
+        }
 
 
 
 
 
-
-    }
+        }
 }
