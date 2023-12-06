@@ -55,7 +55,7 @@
 
 </style>
 
-        <asp:Button ID="ButtonNuevaCompra" runat="server" Text="NUEVA COMPRA"  OnClick="ButtonNuevaComprass_Click"/>
+        <asp:Button ID="ButtonNuevaCompra" runat="server" Text="NUEVA COMPRA" class="btn btn-outline-primary"  OnClick="ButtonNuevaComprass_Click"/>
 
 
 
@@ -63,10 +63,10 @@
         <asp:GridView ID="GridViewCompras" runat="server" AutoGenerateColumns="False" DataKeyNames ="id"   CssClass="table table-bordered table-striped table-hover">
                 <Columns>
         <asp:BoundField DataField="id" HeaderText="Numero de Compra" />
-        <asp:BoundField DataField="Proveedor.nombre" HeaderText="Nombre del proveedor" /> 
+        <asp:BoundField DataField="Proveedor.nombreEmpresa" HeaderText="Nombre del proveedor" /> 
         <asp:BoundField DataField="fechaCompra" HeaderText="Fecha de compra" />
-        <asp:BoundField DataField="observacion" HeaderText="observacion" />             
         <asp:BoundField DataField="cantidadDeProductos" HeaderText="Cantidad de productos" />   
+        <asp:BoundField DataField="observacion" HeaderText="observacion" />             
         <asp:BoundField DataField="entregado"  HeaderText="Estado" ReadOnly ="true" />
        
                     

@@ -20,8 +20,7 @@ namespace NEGOCIO
 
             try
             {
-                datos.setearQuery("Select c.id as id, p.dni as dni, p.nombre as nombre,c.fecha as fecha, c.formaPago as formapago from Compras as c inner join Proveedores as p on p.id=c.id_proveedor");
-
+                datos.setearQuery("SELECT C.idCompra AS idCompra, C.fecha AS fecha, C.idProveedor AS proveedor ,C.estado AS estado, C.observacion AS observacion, SUM(DetC.cantidad * DetC.precio) AS totalCompra, SUM(DetC.cantidad) AS cantidadProductos,P.nombre as nombreProveedor FROM Compras C INNER JOIN Detalles_Compra DetC ON C.idCompra = DetC.idCompra inner join Proveedores P on P.idProveedor = C.idProveedor GROUP BY C.idCompra, C.fecha, C.idProveedor,  C.estado, C.observacion, P.nombre;");                                                                         
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -30,26 +29,40 @@ namespace NEGOCIO
 
 
 
-                    if (!(datos.Lector["id"] is DBNull))
-                        aux.id = (int)datos.Lector["id"];
+                    if (!(datos.Lector["idCompra"] is DBNull))
+                        aux.id = (int)datos.Lector["idCompra"];
 
                   
                     if (!(datos.Lector["fecha"] is DBNull))
                         aux.fechaCompra = (DateTime)datos.Lector["fecha"];
 
-                    if (!(datos.Lector["nombre"] is DBNull))
-                        aux.Proveedor.nombre = (string)datos.Lector["nombre"];
+                    
 
 
                     aux.Proveedor = new Proveedor();
-                    if (!(datos.Lector["dni"] is DBNull))
-                        aux.Proveedor.idProveedor = (char)datos.Lector["dni"];
-                    //aux.Producto = new Producto();
-                    //if (!(datos.Lector["IdProducto"] is DBNull))
-                    //    aux.Producto.Codigo = (int)datos.Lector["IdProducto"];
+                    if (!(datos.Lector["proveedor"] is DBNull))
+                        aux.Proveedor.idProveedor = (int)datos.Lector["proveedor"];
 
-                    if (!(datos.Lector["formaPago"] is DBNull))
-                        aux.metodoPago = (char)datos.Lector["formaPago"];
+                    aux.Proveedor = new Proveedor();
+                    if (!(datos.Lector["nombreProveedor"] is DBNull))
+                        aux.Proveedor.nombreEmpresa = (string)datos.Lector["nombreProveedor"];
+
+
+
+                    if (!(datos.Lector["estado"] is DBNull))
+                        aux.entregado = (string)datos.Lector["estado"];
+
+                    if (!(datos.Lector["observacion"] is DBNull))
+                        aux.observacion = (string)datos.Lector["observacion"];
+
+                    if (!(datos.Lector["totalCompra"] is DBNull))
+                        aux.total = (decimal)datos.Lector["totalCompra"];
+
+
+
+                    if (!(datos.Lector["cantidadProductos"] is DBNull))
+                        aux.cantidadDeProductos = (int)datos.Lector["cantidadProductos"];
+
 
 
 

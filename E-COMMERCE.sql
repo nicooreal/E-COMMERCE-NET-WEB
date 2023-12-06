@@ -9,6 +9,8 @@ CREATE TABLE Clientes (
   fechaNacimiento date not null 
 )
 
+select * from compras
+
 CREATE TABLE Proveedores (
   idProveedor INT PRIMARY KEY IDENTITY (1, 1),
   nombre VARCHAR(50) not null,
@@ -159,37 +161,55 @@ INNER JOIN Detalles_Venta DetV ON DetV.idVenta = V.idVenta  GROUP BY  V.idVenta,
 insert into Marcas(nombre) values ('BONAFIDE')
 
 
-select * from Ventas
-select * from Detalles_Venta
+select * from Compras
+select * from Detalles_Compra
 select * from Productos
-
-DBCC CHECKIDENT ('ventas', RESEED,0)  
-
-
-declare @prueba int
-set @prueba = 1
-
-INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio)
-VALUES (20, 23, 5, 25.00); 
+delete from Compras
+DBCC CHECKIDENT ('Compras', RESEED,0)  
 
 
-create procedure SP_detalleventa
-@idVenta int,
+
+select * from ventas
+
+
+
+INSERT INTO Compras (idProveedor, fecha, observacion, estado) VALUES (1,GETDATE(), 'buena compra', 'pendiente')
+
+
+
+create procedure SP_detalleCompra
+@idCompra int,
 @idProducto int,
 @cantidadDeProductos int,
 @precio int
 
 as
-INSERT INTO Detalles_Venta (idVenta, idProducto, cantidad, precio)
-VALUES (@idVenta, @idProducto, @cantidadDeProductos, @precio); 
+INSERT INTO Detalles_Compra (idCompra, idProducto, cantidad, precio)
+VALUES (@idCompra, @idProducto, @cantidadDeProductos, @precio); 
 
-exec SP_detalleventa 50,23,2,5
+select C.idCompra as idCompra, C.fecha as fecha, C.idProveedor as proveedor,C.entregado as entregado ,C.observacion as observacion,SUM(DetC.cantidad * DetC.precio) as totalCompra ,SUM( DetC.cantidad) as cantidadProductos from Compras C inner join Detalles_Compra DetC on C.idCompra = DetC.idCompra
 
 
-CREATE PROCEDURE SP_sumarStock
-@cantidadDeProductos int,
-@idProducto int
-as
-update Productos set stockActual = stockActual + @cantidadDeProductos  where idProducto = @idProducto
 
-select * from Productos
+SELECT
+    C.idCompra AS idCompra,
+    C.fecha AS fecha,
+    C.idProveedor AS proveedor,
+    C.estado AS estado,
+    C.observacion AS observacion,
+    SUM(DetC.cantidad * DetC.precio) AS totalCompra,
+    SUM(DetC.cantidad) AS cantidadProductos
+FROM Compras C
+INNER JOIN Detalles_Compra DetC ON C.idCompra = DetC.idCompra
+GROUP BY
+    C.idCompra,
+    C.fecha,
+    C.idProveedor,
+    C.estado,
+    C.observacion;
+
+
+
+
+
+

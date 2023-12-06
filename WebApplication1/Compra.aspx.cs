@@ -17,7 +17,7 @@ namespace WebApplication1
             CompraNegocio compraNegocio = new CompraNegocio();
             //listaVenta = ventaNegocio.listarVenta();
 
-            List<DOMINIO.Compra> listaCompraNOeliminada = compraNegocio.listar().Where(p => p.entregado != "ELIMINADO").ToList();
+            List<DOMINIO.Compra> listaCompraNOeliminada = compraNegocio.listar().Where(p => p.entregado != "TERMINADA").ToList();
 
 
             GridViewCompras.DataSource = listaCompraNOeliminada;
