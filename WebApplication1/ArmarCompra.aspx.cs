@@ -27,7 +27,7 @@ namespace WebApplication1
                 ProductoNegocio prodNegoci = new ProductoNegocio();
                 listaProdutos = prodNegoci.listar();
                 List<Producto> productosActivos = listaProdutos.Where(p => p.estado == 1).ToList();
-                List<Producto> productosDeProveedor = listaProdutos.Where(p => p.proveedor.idProveedor == idProveedor).ToList();
+                List<Producto> productosDeProveedor = productosActivos.Where(p => p.proveedor.idProveedor == idProveedor).ToList();
 
                 dropdonwListPoducto.DataSource = productosDeProveedor;
                 dropdonwListPoducto.DataTextField = "nombre";

@@ -59,8 +59,30 @@
 
 
 
+        <div class="button-container">
+    <div>
+        <asp:Button ID="Buttonlistartodos" class="btn btn-secondary" runat="server" OnClick="Buttonlistartodos_Click" Text="TODAS LAS COMPRAS" />
+    </div>
+    <div>
+        <asp:Button ID="ButtonListaPendientes" class="btn btn-warning" runat="server" OnClick="ButtonListaPendientes_Click" Text="COMPRAS PENDIENTES" />
+    </div>
+   
+    <div>
+        <asp:Button ID="ButtonListaEntregados" class="btn btn-success" runat="server" OnClick="ButtonListaRealizadas_Click" Text="COMPRAS REALIZADAS" />
+    </div>
+
+
+
+</div>
+        
     
-        <asp:GridView ID="GridViewCompras" runat="server" AutoGenerateColumns="False" DataKeyNames ="id"   CssClass="table table-bordered table-striped table-hover">
+
+
+
+
+
+    
+        <asp:GridView ID="GridViewCompras" runat="server" AutoGenerateColumns="False" DataKeyNames ="id"  OnSelectedIndexChanged="GridViewCompras_SelectedIndexChanged"  CssClass="table table-bordered table-striped table-hover">
                 <Columns>
         <asp:BoundField DataField="id" HeaderText="Numero de Compra" />
         <asp:BoundField DataField="Proveedor.nombreEmpresa" HeaderText="Nombre del proveedor" /> 

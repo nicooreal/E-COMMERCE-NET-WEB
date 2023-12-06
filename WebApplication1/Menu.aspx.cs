@@ -30,7 +30,9 @@ namespace WebApplication1
 
         protected void btnCompra_Click(object sender, EventArgs e)
         {
+            Session.Add("listaDetalleCompra", null);
             Response.Redirect("Compra.aspx");
+        
         }
 
         protected void btnProductos_Click(object sender, EventArgs e)

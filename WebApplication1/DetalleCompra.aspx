@@ -42,8 +42,8 @@
 </style>
 
 
-
-      <h2 class="my-4 p-3 text-center bg-primary text-light">COMPRAS</h2>
+        <asp:Label ID="Label1" runat="server" Text="SELECCIONE EL PROVEEDOR:"></asp:Label>
+        <br />
 
 
 

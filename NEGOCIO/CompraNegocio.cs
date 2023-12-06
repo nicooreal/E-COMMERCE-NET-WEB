@@ -20,7 +20,7 @@ namespace NEGOCIO
 
             try
             {
-                datos.setearQuery("SELECT C.idCompra AS idCompra, C.fecha AS fecha, C.idProveedor AS proveedor ,C.estado AS estado, C.observacion AS observacion, SUM(DetC.cantidad * DetC.precio) AS totalCompra, SUM(DetC.cantidad) AS cantidadProductos,P.nombre as nombreProveedor FROM Compras C INNER JOIN Detalles_Compra DetC ON C.idCompra = DetC.idCompra inner join Proveedores P on P.idProveedor = C.idProveedor GROUP BY C.idCompra, C.fecha, C.idProveedor,  C.estado, C.observacion, P.nombre;");                                                                         
+                datos.setearQuery("SELECT C.idCompra AS idCompra, C.fecha AS fecha, C.idProveedor AS proveedor ,C.estado AS estado, C.observacion AS observacion, SUM(DetC.cantidad * DetC.precio) AS totalCompra, SUM(DetC.cantidad) AS cantidadProductos,P.nombre as nombreProveedor FROM Compras C INNER JOIN Detalles_Compra DetC ON C.idCompra = DetC.idCompra inner join Proveedores P on P.idProveedor = C.idProveedor GROUP BY C.idCompra, C.fecha, C.idProveedor,  C.estado, C.observacion, P.nombre;");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -32,11 +32,11 @@ namespace NEGOCIO
                     if (!(datos.Lector["idCompra"] is DBNull))
                         aux.id = (int)datos.Lector["idCompra"];
 
-                  
+
                     if (!(datos.Lector["fecha"] is DBNull))
                         aux.fechaCompra = (DateTime)datos.Lector["fecha"];
 
-                    
+
 
 
                     aux.Proveedor = new Proveedor();
@@ -121,5 +121,68 @@ namespace NEGOCIO
 
 
 
+
+        public void pasarARealizado(int idEntregado)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.setParameters("@id", idEntregado);
+
+            datos.setearQuery("update Compras set estado = 'REALIZADA' where idCompra = @id");
+            datos.ejecutarLectura();
+            datos.cerrarConexion();
+
+
         }
+
+
+
+        public void ponerEnPendiente(int idEntregado)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.setParameters("@id", idEntregado);
+
+            datos.setearQuery("update Compras set estado = 'PENDIENTE' where idCompra = @id");
+            datos.ejecutarLectura();
+            datos.cerrarConexion();
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+        public void eliminarCompra(int idEntregado)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.setParameters("@id", idEntregado);
+
+            datos.setearQuery("update Compras set estado = 'ELIMINADO' where idCompra = @id");
+            datos.ejecutarLectura();
+            datos.cerrarConexion();
+
+
+
+
+
+
+
+
+
+
+        }
+    }
 }
+
