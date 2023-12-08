@@ -191,25 +191,11 @@ select C.idCompra as idCompra, C.fecha as fecha, C.idProveedor as proveedor,C.en
 
 
 
-SELECT
-    C.idCompra AS idCompra,
-    C.fecha AS fecha,
-    C.idProveedor AS proveedor,
-    C.estado AS estado,
-    C.observacion AS observacion,
-    SUM(DetC.cantidad * DetC.precio) AS totalCompra,
-    SUM(DetC.cantidad) AS cantidadProductos
-FROM Compras C
-INNER JOIN Detalles_Compra DetC ON C.idCompra = DetC.idCompra
-GROUP BY
-    C.idCompra,
-    C.fecha,
-    C.idProveedor,
-    C.estado,
-    C.observacion;
+SELECT C.idCompra AS idCompra, C.fecha AS fecha, C.idProveedor AS proveedor ,C.estado AS estado, C.observacion AS observacion, SUM(DetC.cantidad * DetC.precio) AS totalCompra, SUM(DetC.cantidad) AS cantidadProductos,P.nombre FROM Compras C INNER JOIN Detalles_Compra DetC ON C.idCompra = DetC.idCompra inner join Proveedores P on P.idProveedor = C.idProveedor GROUP BY C.idCompra, C.fecha, C.idProveedor,  C.estado, C.observacion, P.nombre;
 
 
 
 
 
 
+select DetC.cantidad as cantidadPRoductos, P.idProducto as idProducto ,DetC.precio, (DetC.precio * DetC.cantidad) as totalPorProducto, P.nombre as nombreProducto,  C.idCompra as idCompra from Compras C   inner join Detalles_Compra DetC on DetC.idCompra = C.idCompra inner join Productos P on P.idProducto = DetC.idProducto

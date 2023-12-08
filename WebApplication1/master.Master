@@ -24,15 +24,26 @@
         <li class="nav-item">
           <a class="nav-link" href="Login.aspx">LOGIN</a>
         </li>
-   <li class="nav-item">
+  
+                  <%if (Session["usuario"] != null && ((DOMINIO.Usuario)Session["usuario"]).TipoUsuario == DOMINIO.TipoUsuario.ADMIN)  %>   
+
+<%{%>
+
+          <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="Compra.aspx">COMPRAS</a>
         </li>
+        
+          
              <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="Proveedor.aspx">PROVEEDORES</a>
         </li>
              <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="Vendedor.aspx">VENDEDOR</a>
         </li>
+   <% } %>
+
+
+
              <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="Venta.aspx">VENTAS</a>
         </li>
@@ -45,11 +56,6 @@
              <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="Productos.aspx">PRODUCTOS</a>
         </li>
-
-        
-
-
-
 
 
 <%--        
