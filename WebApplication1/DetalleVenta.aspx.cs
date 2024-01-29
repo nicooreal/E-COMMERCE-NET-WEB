@@ -21,6 +21,26 @@ namespace WebApplication1
           
             Session.Add("idVenta",idSeleccionado);
 
+           VentaNegocio vnngocio = new VentaNegocio();
+
+            List<DOMINIO.Venta> listaVentasEstado = vnngocio.listarVenta();
+
+            DOMINIO.Venta ventaEStado = listaVentasEstado.Find(venti => venti.codigo == idSeleccionado);
+
+            if (ventaEStado.entregado == "PENDIENTE")
+            {
+                ButtonAnulaEntrega.Visible = false;
+                    
+            }
+
+            if (ventaEStado.entregado == "ENTREGADO")
+            {
+ ButtonEntregado.Visible = false;
+
+            }
+
+
+
             DetalleVentaNegocio detVenta = new DetalleVentaNegocio();
              List<DOMINIO.DetalleVenta> listaDetalleVenta =  detVenta.listarDetalleVenta();
 
